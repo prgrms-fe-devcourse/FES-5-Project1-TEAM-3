@@ -50,10 +50,7 @@ button.survey-button:hover {
 
 .survey-form {
   position: fixed;
-  width: 90%;
-  max-width: 780px;
-  max-height: 80vh;
-  overflow-y: auto;  
+  width: 780px;
   padding: 34px; 
   background-color: #fff;
   border-radius: 16px;
