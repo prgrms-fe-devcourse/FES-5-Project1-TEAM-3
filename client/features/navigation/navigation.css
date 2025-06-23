@@ -2,8 +2,6 @@ html {
   scroll-behavior: smooth;
 }
 
-
-
 .header-bar {
   position: fixed;
   z-index: 100;
@@ -15,7 +13,6 @@ html {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-
 }
 
 .header-text {
@@ -70,15 +67,14 @@ html {
   border: none;
   cursor: pointer;
   > svg > path {
-    fill: black
+    fill: black;
   }
-
 }
 .side-menu > .logo-bar > a {
   width: 150px;
   height: 30px;
   display: flex;
-  
+
   > svg {
     width: 100%;
   }
@@ -144,7 +140,6 @@ ul > .li2 > .chevron1 {
 }
 
 @media (max-width: 768px) {
-
   .header-bar {
     display: flex;
     align-items: center;
@@ -162,7 +157,6 @@ ul > .li2 > .chevron1 {
     left: -260px;
     height: 100%;
     z-index: 100;
-    
   }
 
   .side-menu.open {
@@ -172,34 +166,32 @@ ul > .li2 > .chevron1 {
     height: 100vh;
     display: flex;
     flex-direction: column;
-      
-  
   }
 
-  .side-menu.open +  .hamburger-btn {
+  .side-menu.open + .hamburger-btn {
     position: fixed;
     left: calc(100vw - 70px);
-    z-index: 1000 ;
-    background-color: transparent ;
+    z-index: 1000;
+    background-color: transparent;
     width: 49px;
     transition: left 0.3s ease-in-out;
-  
+
     > svg > path {
-      fill: white ;
+      fill: white;
     }
   }
 
- .hamburger-btn {
+  .hamburger-btn {
     position: fixed;
     top: 60.33px;
     left: 20px;
     z-index: 1000;
-    background-color: transparent;
+    background-color: white;
+    height: 40px;
 
     > svg > path {
-      fill: black
+      fill: black;
     }
-
   }
 
   .side-menu.open > ul {
@@ -207,7 +199,7 @@ ul > .li2 > .chevron1 {
     padding: 0;
     margin: 0;
     list-style: none;
-    overflow: visible
+    overflow: visible;
   }
 
   .side-menu.open > ul > li {
@@ -216,16 +208,14 @@ ul > .li2 > .chevron1 {
     margin: 10px 0;
   }
 
-  .side-menu.open > ul > li > svg
-  {
+  .side-menu.open > ul > li > svg {
     width: 5vw;
     height: auto;
   }
 
-  .side-menu.open > ul > .li1
-   {
+  .side-menu.open > ul > .li1 {
     margin-left: 20px;
-   }
+  }
 
   .side-menu.open > ul > .li1 > a > .folder {
     width: 5vw;
@@ -236,4 +226,3 @@ ul > .li2 > .chevron1 {
     height: auto;
   }
 }
-
