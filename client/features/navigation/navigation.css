@@ -1,6 +1,6 @@
-html {
+/* html {
   scroll-behavior: smooth;
-}
+} */
 
 .header-bar {
   position: fixed;
@@ -31,7 +31,7 @@ html {
   height: 100vh;
   background-color: #403e3e;
   color: white;
-  transition: left 0.3s ease-in-out;
+  transition: left 0.2s ease-in-out;
   z-index: 100;
   padding: 20px;
 }
@@ -52,7 +52,7 @@ html {
   position: fixed;
   left: 200px;
   top: 63.33px;
-  transition: left 0.3s ease-in-out;
+  transition: left 0.2s ease-in-out;
   > svg > path {
     fill: white;
   }
@@ -174,7 +174,7 @@ ul > .li2 > .chevron1 {
     z-index: 1000;
     background-color: transparent;
     width: 49px;
-    transition: left 0.3s ease-in-out;
+    transition: left 0.2s ease-in-out;
 
     > svg > path {
       fill: white;

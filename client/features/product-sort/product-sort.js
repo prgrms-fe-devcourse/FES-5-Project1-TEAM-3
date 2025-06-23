@@ -121,7 +121,8 @@ function slideProductList(data) {
 // Swiper 슬라이드 초기화
 const swiper = new Swiper(".productSwiper", {
   loop: true, // 무한 루프
-  spaceBetween: 30,
+  spaceBetween: 24,
+  slidesPerView: 4,
   navigation: {
     nextEl: ".custom-next",
     prevEl: ".custom-prev",
