@@ -124,7 +124,7 @@ function createCheckbox(parent, option){
     const parentNode = document.querySelector(`.${parent}`);
     const template = /*html */`
         <input class="${parent}" id="${parent}-${option}" type="checkbox" />
-        <label class="${parent}-item" for="${parent}-${option}">
+        <label tabindex="0" aria-label="${option}" class="${parent}-item" for="${parent}-${option}">
             <div class="check">
                 <i class="bx bx-circle"></i>
                 <i class="bx bx-check-circle"></i>

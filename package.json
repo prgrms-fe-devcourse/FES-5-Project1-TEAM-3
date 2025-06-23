@@ -1,7 +1,7 @@
 {
   "name": "devmart2",
   "version": "1.0.0",
-  "description": "programmers 1-3팀 gitfilled 3차 프로젝트 기획 아카이빙",
+  "description": "programmers 1-3팀 gitfilled 3차 프로젝트 기획 아카이빙 - devMart",
   "main": "main.js",
   "scripts": {
     "dev": "live-server client --host=localhost --port=5500 --no-browser"

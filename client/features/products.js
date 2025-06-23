@@ -164,7 +164,7 @@ const products = [
         id: 10,
         name: 'GL1988 남녀공용 안경사가 만든 블루라이트 차단 안경',
         price: 30900,
-        img: './assets/images/product-image-removebg/potion.png',
+        img: './assets/images/product-image-removebg/glasses.png',
         recommendedRole: ['frontend', 'backend', 'ai', 'publisher'],
         recommendedEnv: ['cafe'],
         recommendedShift: ['night'],
@@ -419,23 +419,19 @@ const products = [
         reviews: 1498,
         category: ['fashion', 'etc']
     },
-
-
-    
-    /* 복사용 객체 예시 */
     {
         id: 28,
-        name: 'LG전자 FHD PC 모니터',
-        price: 189000,
-        img: './assets/images/product-image-removebg/monitor.png',
+        name: '프로그래머스 스티커',
+        price: 7800,
+        img: './assets/images/product-image-removebg/programmers-sticker.png',
         recommendedRole: ['frontend', 'backend', 'ai', 'publisher'],
-        recommendedEnv: ['home', 'office', 'cafe'],
+        recommendedEnv: ['home','office','cafe'],
         recommendedShift: ['day', 'night'],
-        txt: "모든 개발자를 위한 올인원 모니터! 다양한 개발 환경과 용도에 완벽하게 적응하는 만능 디스플레이입니다.",
-        sold: 152,
-        likes: 4.3,
-        reviews: 132,
-        category: ['etc']
+        txt: "프롱이 성공하자",
+        sold: 628,
+        likes: 4.0,
+        reviews: 532,
+        category: ['emotion']
 
     },
 
@@ -679,21 +675,7 @@ const products = [
         category: ['equipment','etc']
 
     },
-    {
-        id: 44,
-        name: '프로그래머스 스티커',
-        price: 7800,
-        img: './assets/images/product-image-removebg/programmers-sticker.png',
-        recommendedRole: ['frontend', 'backend', 'ai', 'publisher'],
-        recommendedEnv: ['home','office','cafe'],
-        recommendedShift: ['day', 'night'],
-        txt: "프롱이 성공하자",
-        sold: 628,
-        likes: 4.0,
-        reviews: 532,
-        category: ['emotion']
 
-    },
 ]
 
 setStorage(KEY, products);

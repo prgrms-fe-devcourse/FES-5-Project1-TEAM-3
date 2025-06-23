@@ -1,10 +1,12 @@
 const hamburger = document.querySelector('.hamburger-btn');
 const sidebar = document.querySelector('.side-menu');
 
+// 햄버거 버튼 클릭 시 사이드바 열림
 hamburger.addEventListener('click', () => {
   sidebar.classList.toggle('open');
 });
 
+// 사이드바 각 카테고리 클릭 시 스크롤 애니메이션 구현
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault(); // 기본 동작 방지
@@ -12,7 +14,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const targetElement = document.getElementById(targetId);
 
     if (targetElement) {
-      const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY; // 대상 위치 계산
+      const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY-100; // 대상 위치 계산
       const startPosition = window.scrollY; // 현재 스크롤 위치
       const distance = targetPosition - startPosition; // 이동 거리
       const duration = 800; // 애니메이션 지속 시간 (밀리초)
