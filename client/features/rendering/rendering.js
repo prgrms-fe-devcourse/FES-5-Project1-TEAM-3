@@ -50,7 +50,7 @@ function getProductTemplate({ name, price, img, txt, likes, reviews }) {
         <div class="product-card">
             <div class="product-image">
                 <img src="${img}" alt="${name}" style="height: 100%; object-fit: cover; border-radius: 8px;" />
-                <div class="action-icons" aria-hidden="true">
+                <div class="action-icons">
                     <button class="action-btn wishlist-btn" aria-label="${name} 찜하기">♥</button>
                     <button class="action-btn cart-btn" aria-label="${name} 장바구니에 담기">🛒</button>
                     <button class="action-btn buy-btn" aria-label="${name} 바로 구매하기">💳</button>
