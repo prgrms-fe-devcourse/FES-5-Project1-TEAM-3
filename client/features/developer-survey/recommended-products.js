@@ -89,6 +89,3 @@ export function initRecommendedProducts() {
         setStorage(PRODUCTS_KEY, data);
     }
 }
-
-
-initRecommendedProducts();

@@ -411,7 +411,7 @@
 /* ----------------------------------상품 리스트------------------------------------ */
 
 
-ul.productList {
+ul.all-products-list {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -420,7 +420,7 @@ ul.productList {
   margin: 0;
 }
 
-.productList li {
+.all-products-list li {
   cursor: pointer;
   overflow: hidden;
 }
@@ -503,7 +503,7 @@ figure.img {
 }
 
 @media (max-width: 1024px) {
-  ul.productList{
+  ul.all-products-list{
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;

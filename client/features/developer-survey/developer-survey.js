@@ -177,6 +177,12 @@ function initSurvey(){
     handleRecommendedProducts();
 }
 
-initSurvey();
-createForm();
-handleOpenSurvey();
+export function initDeveloperSurvey() {
+  initSurvey();
+  createForm();
+  handleOpenSurvey();
+}
+
+// initSurvey();
+// createForm();
+// handleOpenSurvey();

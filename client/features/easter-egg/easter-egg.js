@@ -30,20 +30,36 @@ let currentHover = null;
  * 
  * @returns {void}
  */
-export function handlehoverDetection(){
-  const products = document.querySelectorAll('.product-card');
-
-  products.forEach(card => {
-    card.addEventListener('mouseenter',()=>{
+export function handleHoverDetection() {
+  // 마우스가 document.body 위 어디서든 움직일 때
+  document.body.addEventListener('pointerover', e => {
+    const card = e.target.closest('.product-card');
+    if (card) {
       currentHover = card;
-    });
+    }
+  });
 
-    card.addEventListener('mouseleave',()=>{
+  document.body.addEventListener('pointerout', e => {
+    // pointerout 이벤트는 카드 또는 그 자식에서 발생하므로
+    if (e.target.closest('.product-card')) {
       currentHover = null;
-    });
-
-  })
+    }
+  });
 }
+// export function handleHoverDetection(){
+//   const products = document.querySelectorAll('.product-card');
+
+//   products.forEach(card => {
+//     card.addEventListener('mouseenter',()=>{
+//       currentHover = card;
+//     });
+
+//     card.addEventListener('mouseleave',()=>{
+//       currentHover = null;
+//     });
+
+//   })
+// }
 
 /**
  * 개발자 밈 출력 핸들러
@@ -58,13 +74,13 @@ export function handlehoverDetection(){
 export function handleMeme(){
   document.addEventListener('keydown', (e) => {
   if (e.key === 'd'&& currentHover) {
-    const memeText = memes[Math.floor(Math.random()*memes.length)];
-
+    
     //이미 밈이 있으면 제거
     const exist = currentHover.querySelector('.meme');
     if(exist) exist.remove();
-
+    
     //새 밈 요소 생성
+    const memeText = memes[Math.floor(Math.random()*memes.length)];
     const meme = document.createElement('div');
     meme.className = 'meme';
     meme.textContent = memeText;
@@ -75,9 +91,7 @@ export function handleMeme(){
     playMemeSound();
 
     //일정시간 후 사라지기
-    setTimeout(()=>{
-      meme.remove();
-    },2000);
+    setTimeout(()=>{meme.remove();},2000);
   }
 });
 }
@@ -89,19 +103,32 @@ export function handleMeme(){
  */
 function playMemeSound(){
   const audio = document.getElementById('meme-audio');
-
+  if (!audio) return;
   audio.currentTime = 0;
   audio.play();
 }
 
-handlehoverDetection();
-handleMeme();
+export function initEasterEgg() {
+  handleHoverDetection();
+  handleMeme();
 
-/**
- * 콘솔 이스터에그
- */
-console.log('%c。　♡ 。　　♡。　　♡', 'color: pink; font-size: 16px;');
-console.log('%c♡。　＼　　｜　　／。　♡', 'color: orange; font-size: 16px;');
-console.log('%c\tdevMart 짱', 'color: gold; font-size: 18px; font-weight: bold;');
-console.log('%c♡。　／　　｜　　＼。　♡', 'color: orange; font-size: 16px;');
-console.log('%c。　♡。 　　。　　♡。', 'color: pink; font-size: 16px;');
+  // 콘솔 이스터에그
+  console.log('%c。　♡ 。　　♡。　　♡', 'color: pink; font-size: 16px;');
+  console.log('%c♡。　＼　　｜　　／。　♡', 'color: orange; font-size: 16px;');
+  console.log('%c\tdevMart 짱', 'color: gold; font-size: 18px; font-weight: bold;');
+  console.log('%c♡。　／　　｜　　＼。　♡', 'color: orange; font-size: 16px;');
+  console.log('%c。　♡。 　　。　　♡。', 'color: pink; font-size: 16px;');
+}
+
+// handlehoverDetection();
+// handleMeme();
+
+// /**
+//  * 콘솔 이스터에그
+//  */
+// console.log('%c。　♡ 。　　♡。　　♡', 'color: pink; font-size: 16px;');
+// console.log('%c♡。　＼　　｜　　／。　♡', 'color: orange; font-size: 16px;');
+// console.log('%c\tdevMart 짱', 'color: gold; font-size: 18px; font-weight: bold;');
+// console.log('%c♡。　／　　｜　　＼。　♡', 'color: orange; font-size: 16px;');
+// console.log('%c。　♡。 　　。　　♡。', 'color: pink; font-size: 16px;');
+

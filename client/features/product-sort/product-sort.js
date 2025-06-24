@@ -4,9 +4,6 @@ import { createProduct } from "../rendering/rendering.js";
 import { shuffle } from "../shuffle-products.js";
 
 const PRODUCTS_KEY = 'products';
-const buttons = document.querySelectorAll("#btn-wrap button");
-const slide = document.getElementById("productSwiper");
-const allProducts = document.querySelector('#productList');
 
 /**
  * @typedef {Object} Product
@@ -32,8 +29,7 @@ const allProducts = document.querySelector('#productList');
  * @returns {Product[]} local에서 가져온 데이터
  */
 function getProductList(){
-  const data = getStorage(PRODUCTS_KEY);
-  return data;
+  return getStorage(PRODUCTS_KEY) || []; 
 }
 
 
@@ -41,23 +37,29 @@ function getProductList(){
  * 전체 상품 렌더링
  * 
  * @param {Product[]} products 렌더링할 상품 배열
+ * @param {string} allProducts 전체 상품 리스트 컨테이너
  * @returns {void}
  */
-function renderAllProducts(products) {
-  allProducts.innerHTML = ""; 
+function renderAllProducts(
+  products,
+  allProducts = "#all-products-list"
+) {
+  const container = document.querySelector(allProducts);
+  if(!container) return;
+  container.innerHTML = ""; 
   const randomProducts = shuffle(products);
   const limitedProducts = randomProducts.slice(0, 10); // 최대 8개만 출력
 
   limitedProducts.forEach((item) => {
     const card = createProduct(item);
-    allProducts.insertAdjacentElement('beforeend', card);
+    container.insertAdjacentElement('beforeend', card);
   });
 }
 
 /**
  * 상품 필터링
  * 
- * @param {string}} type 필터 구분
+ * @param {string} type - 'latest' | 'sold' | 'likes'  필터 구분
  * @returns {void}
  */
 function sortProducts(type) {
@@ -76,9 +78,12 @@ function sortProducts(type) {
 /**
  * 필터링 버튼 클릭 이벤트 핸들러
  * 
- * @returns {void}
+ * @param {string} buttonSelector - 필터 버튼 셀렉터 (예: '#btn-wrap button')
  */
-function handleFiltering (){
+function handleFilterButtons(
+  buttonSelector = "#btn-wrap button"
+) {
+  const buttons = document.querySelectorAll(buttonSelector);
   buttons.forEach((btn) => {
     btn.addEventListener("click", function () {
       buttons.forEach((b) => b.classList.remove("on"));
@@ -91,25 +96,31 @@ function handleFiltering (){
 /**
  * 슬라이드 상품 렌더링 및 Swiper 초기화
  * 
- * @param {Product[]} data 슬라이드에 넣어줄 상품 배열
+ * @param {Product[]} products 슬라이드에 넣어줄 상품 배열
  * @returns {void}
  */
-function slideProductList(data) {
-  const wrapper = slide.querySelector(".swiper-wrapper");
-  wrapper.innerHTML = ""; // 기존 슬라이드 초기화
+function slideProductList(
+  products,
+  sliderSelector = "#productSwiper"
+) {
+  const slideEl = document.querySelector(sliderSelector);
+  if (!slideEl) return;
 
-  data.slice(0, 5).forEach(({img, name, txt, likes, price}) => {
+  const wrapper = slideEl.querySelector(".swiper-wrapper");
+  wrapper.innerHTML = "";
+
+  products.slice(0, 5).forEach(({img, name, txt, likes, price}) => {
     const slideEl = document.createElement("div");
     slideEl.className = "swiper-slide";
 
     slideEl.innerHTML = /* html */`
-      <figure class="img"><img src="${img}"></figure>
+      <figure class="img"><img src="${img}" alt="${name}"></figure>
       <div class="info">
         <span aria-label="상품이름 : ${name}" class="brand">${name}</span>
         <p aria-label="상품설명 : ${txt}" class="txt">${txt}</p>
-        <span aria-label="상품가격 : ${price}" class="price">${price.toLocaleString()}원</span>
+        <span aria-label="상품가격 : ${price.toLocaleString()}" class="price">${price.toLocaleString()}원</span>
         <div class="rating">
-          <img class="star" src="features/product-sort/img/star_on.png" alt="평점이미지" />
+          <img class="star" src="assets/images/product-sort/star_light.png" alt="평점이미지" />
           <span aria-label="상품평점${likes.toFixed(1)}점">${likes.toFixed(1)}</span>
         </div>
       </div>
@@ -119,8 +130,8 @@ function slideProductList(data) {
   });
 
 // Swiper 슬라이드 초기화
-const swiper = new Swiper(".productSwiper", {
-  loop: true, // 무한 루프
+new Swiper(".productSwiper", {
+  loop: true, 
   spaceBetween: 24,
   slidesPerView: 4,
   navigation: {
@@ -131,26 +142,34 @@ const swiper = new Swiper(".productSwiper", {
   // ✅ 반응형 설정
   breakpoints: {
     // 0 ~ 639px
-    0: {
-      slidesPerView: 1,
-      spaceBetween: 10,
-    },
+    0: { slidesPerView: 1, spaceBetween: 10, },
     // 640px ~ 1023px
-    640: {
-      slidesPerView: 2,
-      spaceBetween: 20,
-    },
+    640: { slidesPerView: 2, spaceBetween: 20, },
     // 1024px 이상
-    1024: {
-      slidesPerView: 4,
-      spaceBetween: 30,
-    }
-  }
+    1024: { slidesPerView: 4, spaceBetween: 30, },
+  },
 });
 }
 
+/**
+ * product-sort 모듈을 초기화합니다.
+ * @param {Object} [opts]
+ * @param {string} [opts.filterButtonSelector='#btn-wrap button']
+ * @param {string} [opts.sliderSelector='#productSwiper']
+ * @param {string} [opts.productListSelector='#productList']
+ */
+export function initProductSort({
+  filterButtonSelector = "#btn-wrap button",
+  sliderSelector = "#productSwiper",
+  productListSelector = "#all-products-list",
+} = {}) {
+  const products = getProductList();
+  slideProductList(products, sliderSelector);
+  renderAllProducts(products, productListSelector);
+  handleFilterButtons(filterButtonSelector);
+}
 
 
-slideProductList(getProductList());
-renderAllProducts(getProductList());
-handleFiltering();
+// slideProductList(getProductList());
+// renderAllProducts(getProductList());
+// handleFilterButtons();
