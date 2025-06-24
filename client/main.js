@@ -2,6 +2,7 @@
 import './features/products.js';
 import './features/storage.js';
 import './features/shuffle-products.js'
+import './features/notes/noteApp.js'
 import { initDeveloperSurvey } from './features/developer-survey/developer-survey.js';
 import { initNavigation } from './features/navigation/navigation.js';
 import { initEasterEgg } from './features/easter-egg/easter-egg.js';

@@ -198,3 +198,488 @@ figure.img {
       gap: 20px;
   }
 }
+
+/* ----------------------------------슬라이드 영역 ------------------------------------ */
+
+.slide {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.swiper {
+  width: 100%;
+  box-sizing: border-box; 
+}
+
+.swiper-wrapper {
+  display: flex;
+}
+
+.swiper-slide {
+  width: 100%;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.swiper-slide figure.img {
+    width: 100%;
+    height: 200px;
+    background: #fafafa;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.swiper-slide figure.img img {
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+
+.custom-prev,
+.custom-next {
+  color: #222;
+  font-weight: bold;
+  background: white;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  line-height: 44px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 10;
+}
+
+.custom-prev {
+  left: 0;
+}
+
+.custom-next {
+  right: 0;
+}
+
+
+/* ----------------------------------푸터------------------------------------ */
+
+
+
+.footer {
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 14px;
+  color: #444;
+  padding: 40px 0 20px;
+  margin-top: 120px;
+}
+
+.footer-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 0.5fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.footer-brand h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.footer-menu {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.menu-column h4,
+.footer-contact h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #222;
+}
+
+.menu-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-column li {
+  margin-bottom: 10px;
+}
+
+.menu-column a {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.menu-column a:hover {
+  color: #007BFF;
+}
+
+.footer-contact p {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.footer-contact a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+.social-icons {
+  margin-top: 8px;
+  display: flex;
+  gap: 12px;
+}
+
+.social-icons a {
+  font-size: 18px;
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #007BFF;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+
+@media screen and (max-width: 1024px) {
+  .footer-container {
+    padding: 0 24px;
+    gap: 32px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+  }
+
+  .footer-menu {
+    gap: 40px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-menu {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .menu-column h4,
+  .footer-contact h4 {
+    font-size: 14px;
+  }
+
+  .menu-column li,
+  .footer-contact p {
+    font-size: 13px;
+  }
+
+  .footer-bottom {
+    font-size: 11px;
+    padding-top: 16px;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+/* ----------------------------------자주 묻는 질문 ------------------------------------ */
+
+
+section.faq{
+  display: flex;
+  gap: 100px
+}
+
+
+section.faq .tit_wrap .txt .name{
+  font-size: 16px;
+  font-weight: 400;
+  color: #0974d8;
+  margin-bottom: 14px;
+  display: block;
+}
+
+section.faq .tit_wrap .txt .heading{
+  font-size: 26px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 14px;
+}
+
+section.faq .tit_wrap .txt p{
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #767676;
+  margin-bottom: 36px;
+}
+
+
+section.faq ul.faq_list li:hover .tit h3::before {
+  transform: scaleX(1);
+}
+section.faq ul.faq_list li p{
+  display: none;
+}
+
+
+section.faq .tit_wrap button {
+    border: 1px solid #ddd;
+    background: transparent;
+    display: inline-block;
+    width: 100px;
+    height: 42px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+section.faq .tit_wrap button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0974d8; 
+  z-index: -1;
+  transition: transform 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+section.faq .tit_wrap button:hover::before {
+  transform: scaleX(1);
+}
+
+section.faq .tit_wrap button:hover {
+  color: #fff;
+  border-color: #0974d8;
+}
+
+
+section.faq ul.faq_list {
+  width: 100%;
+
+}
+
+section.faq ul.faq_list li{
+  padding: 26px 14px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  transition: all 0.3s;
+
+}
+
+section.faq ul.faq_list li:hover{
+  border-bottom: 1px solid #222;
+}
+
+section.faq ul.faq_list li:hover .tit h3{
+  color: #0974d8;
+}
+
+
+section.faq ul.faq_list li .tit h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #222;
+  line-height: 1.6;
+  position: relative;
+  transition: all 0.3s;
+  display: inline-block; 
+  max-width: fit-content; 
+}
+
+
+section.faq ul.faq_list li .tit h3::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%; 
+  height: 8px;
+  background-color: rgb(199, 228, 255);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  border-radius: 3px; 
+  z-index: -1;
+}
+
+
+@media (max-width: 1024px) {
+
+section.faq{
+    flex-direction: column;
+    gap: 20px;
+}
+
+section.faq ul.faq_list li .tit h3 {
+  font-size: 16px;
+}
+
+section.faq ul.faq_list li{
+  padding: 18px 14px;
+
+}
+
+section.faq .tit_wrap {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+
+section.faq .tit_wrap .txt p{
+  margin-bottom: 20px;
+}
+
+}
+
+
+@media (max-width: 1024px) {
+
+section.faq ul.faq_list li{
+  padding: 16px 0;
+
+}
+
+
+}
+
+
+
+/* ----------------------------------------------다크 모드테마 --------------------------------------- */
+
+
+
+body.dark-theme .info .brand {
+  color: #fff;
+}
+
+body.dark-theme .info .price {
+  color: #fff;
+}
+
+body.dark-theme .info .rating span {
+  color: #797979;
+}
+
+body.dark-theme .txt-wrap button{
+  color: #fff;
+}
+
+body.dark-theme section.faq .tit_wrap .txt .heading{
+  color: #fff;
+}
+
+body.dark-theme .keyword ul.keyword-list li .bottom p.title{
+  color: #fff;
+}
+
+body.dark-theme section.faq ul.faq_list li{
+  border-bottom: 1px solid #3c3c3c;
+}
+
+body.dark-theme section.faq ul.faq_list li:hover{
+  border-bottom: 1px solid #fff;
+}
+
+body.dark-theme section.faq ul.faq_list li .tit h3{
+  color: #fff;
+}
+
+body.dark-theme .faq .tit_wrap button{
+  color: #fff;
+}
+
+body.dark-theme .txt-wrap button{
+  background-color: #1a1a1a;
+}
+
+body.dark-theme .txt-wrap button.on{
+  background-color: #0974d8;;
+}
+
+
+body.dark-theme .txt-wrap h2.txt{
+  color: #fff;
+}
+
+body.dark-theme .survey-form h2{
+  color: #fff;
+}
+
+body.dark-theme section.faq ul.faq_list li .tit h3::before {
+
+  background-color: #666;
+
+}
+
+
+

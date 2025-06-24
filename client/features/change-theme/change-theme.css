@@ -58,9 +58,9 @@ body.dark-theme .product-card h3 {
 }
 
 
-     body.dark-theme .product-card p {
-      color: #8f8f8f;
-    }
+body.dark-theme .product-card p {
+  color: #8f8f8f;
+}
 
 /* 스무스 트랜지션 */
 * {
