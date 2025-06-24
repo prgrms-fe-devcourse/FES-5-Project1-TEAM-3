@@ -1,3 +1,5 @@
+const marked = window.marked;
+
 const API_URL = 'https://kdt-api.fe.dev-cos.com/documents';
 const USERNAME = 'fe6-team3-devmart';
 
@@ -95,14 +97,27 @@ export function openNoteEditor(id) {
   })
     .then((res) => res.json())
     .then((doc) => {
-      const root = document.querySelector('#note-section');
-      root.innerHTML = `
-        <input id="note-title" value="${doc.title}" />
-        <textarea id="note-content">${JSON.stringify(doc.documents, null, 2)}</textarea>
-        <button id="save-note">저장</button>
-        <button id="delete-note">삭제</button>
-      `;
-
+        const contentText = Array.isArray(doc.documents)
+          ? doc.documents.join('\n')
+          : doc.documents;
+      
+        const root = document.querySelector('#note-section');
+        root.innerHTML = `
+          <input id="note-title" value="${doc.title}" />
+          <textarea id="note-content">${contentText}</textarea>
+          <div id="note-preview" class="markdown-body"></div>
+          <button id="save-note">저장</button>
+          <button id="delete-note">삭제</button>
+        `;
+      
+        // 처음 로딩 시 미리보기
+        document.querySelector('#note-preview').innerHTML = marked.parse(contentText);
+      
+        // 입력할 때마다 마크다운 렌더링
+        document.querySelector('#note-content').addEventListener('input', (e) => {
+          const html = marked.parse(e.target.value);
+          document.querySelector('#note-preview').innerHTML = html;
+        });
       document
         .querySelector('#save-note')
         .addEventListener('click', () => saveNote(id));

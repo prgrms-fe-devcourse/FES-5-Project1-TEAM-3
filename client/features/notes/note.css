@@ -77,3 +77,34 @@
 #note-list li:hover {
   background-color: #f3f4f6;
 }
+
+#note-preview {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+#note-preview h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#note-preview strong {
+  font-weight: bold;
+}
+
+#note-preview em {
+  font-style: italic;
+}
+
+#note-preview code {
+  background-color: #f4f4f4;
+  padding: 0.2em 0.4em;
+  font-family: monospace;
+  border-radius: 4px;
+}
