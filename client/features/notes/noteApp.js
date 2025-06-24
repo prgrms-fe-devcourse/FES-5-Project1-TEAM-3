@@ -1,24 +1,48 @@
-// noteApp.js
-
 const API_URL = 'https://kdt-api.fe.dev-cos.com/documents';
 const USERNAME = 'fe6-team3-devmart';
 
 document.querySelector('#ask-button').addEventListener('click', () => {
-  renderNoteApp(); // 노트 앱 렌더링 함수 호출
   history.pushState({}, '', '/note');
+  renderNoteApp();
 });
 
 export function renderNoteApp() {
-  const root = document.querySelector('#app');
-  root.innerHTML = `
-    <h1>질문 목록</h1>
-    <button id="create-note">새 질문글 작성</button>
-    <ul id="note-list"></ul>
-  `;
+  const noteSection = document.getElementById('note-section');
+  const mainContent = document.getElementById('main-content');
 
-  document.querySelector('#create-note').addEventListener('click', createNote);
-  loadNoteList();
+  if (!noteSection || !mainContent) return;
+
+  if (location.pathname === '/note') {
+    noteSection.style.display = 'block';
+    mainContent.style.display = 'none';
+
+    noteSection.innerHTML = `
+        <h1>질문 목록</h1>
+        <button id="create-note">새 질문글 작성</button>
+        <ul id="note-list"></ul>
+      `;
+    document
+      .querySelector('#create-note')
+      .addEventListener('click', createNote);
+    loadNoteList();
+  } else if (location.pathname.startsWith('/note/')) {
+    // 주소가 '/note/12345' 같이 되어 있을 경우
+    const id = location.pathname.split('/')[2];
+    openNoteEditor(id);
+    return;
+  } else {
+    noteSection.style.display = 'none';
+    mainContent.style.display = 'block'; // 다시 기존 콘텐츠 보여주기
+  }
 }
+
+// 페이지 로딩 시 실행
+renderNoteApp();
+
+// 브라우저 뒤로가기 등에도 반응하도록
+window.addEventListener('popstate', () => {
+  renderNoteApp();
+});
 
 export function loadNoteList() {
   fetch(API_URL, {
@@ -34,7 +58,11 @@ export function loadNoteList() {
       data.forEach((doc) => {
         const li = document.createElement('li');
         li.textContent = doc.title;
-        li.addEventListener('click', () => openNoteEditor(doc.id));
+        li.addEventListener('click', () => {
+          history.pushState({}, '', `/note/${doc.id}`);
+          renderNoteApp();
+        });
+
         ul.appendChild(li);
       });
     });
@@ -56,6 +84,9 @@ export function createNote() {
 }
 
 export function openNoteEditor(id) {
+  if (location.pathname !== `/note/${id}`) {
+    history.pushState({}, '', `/note/${id}`);
+  }
   fetch(`${API_URL}/${id}`, {
     headers: {
       'Content-Type': 'application/json',
@@ -64,7 +95,7 @@ export function openNoteEditor(id) {
   })
     .then((res) => res.json())
     .then((doc) => {
-      const root = document.querySelector('#app');
+      const root = document.querySelector('#note-section');
       root.innerHTML = `
         <input id="note-title" value="${doc.title}" />
         <textarea id="note-content">${JSON.stringify(doc.documents, null, 2)}</textarea>
