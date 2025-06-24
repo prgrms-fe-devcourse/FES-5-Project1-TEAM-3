@@ -19,25 +19,27 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <link rel="stylesheet" href="./reset.css" />
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./features/product-sort/product-sort.css" />
-    <link rel="stylesheet" href="./features/easter-egg/easter-egg.css" />
-    <link
-      rel="stylesheet"
-      href="./features/developer-survey/developer-survey.css"
-    />
-    <link rel="stylesheet" href="./features/navigation/navigation.css" />
-    <link rel="stylesheet" href="./features/rendering/rendering.css" />
-    <link rel="stylesheet" href="./features/change-theme/change-theme.css" />
-    <link rel="stylesheet" href="./features/notes/note.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-light.min.css"
-    />
-
-    <script type="module" src="./main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+      <link rel="stylesheet" href="./reset.css" />
+      <link rel="stylesheet" href="./style.css" />
+      <link rel="stylesheet" href="./features/navigation/navigation.css" />
+      <link rel="stylesheet" href="./features/easter-egg/easter-egg.css" />
+      <link rel="stylesheet" href="./features/rendering/rendering.css" />
+      <link rel="stylesheet" href="./features/product-sort/product-sort.css" />
+      <link rel="stylesheet" href="./features/developer-survey/developer-survey.css" />
+      <link rel="stylesheet" href="./features/product-sort/visual.css" />
+      <link rel="stylesheet" href="./features/product-sort/recommend-programs.css" />
+      <link rel="stylesheet" href="./features/product-sort/slide.css" />
+      <link rel="stylesheet" href="./features/product-sort/footer.css" />
+      <link rel="stylesheet" href="./features/change-theme/change-theme.css" />
+      <link rel="stylesheet" href="./features/change-theme/dark.css" />
+        
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-light.min.css"
+      />
+      <script type="module" src="./main.js" defer></script>
+          <link rel="stylesheet" href="./features/notes/note.css" />
+      <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   </head>
   <body>
     <!-- 질문글(노트) -->
@@ -794,35 +796,21 @@
       </button>
     </header>
 
-      <!-- 상단 배너 & 개발자 설문조사 -->
-      <div
-        id="visual"
-        class="visual"
-        style="
-          background: url('features/product-sort/img/visual_bg.jpg') no-repeat
-            50% 50% / cover;
-        "
-      >
-        <figure>
-          <img src="features/product-sort/img/3d_icon.png" alt="" />
-        </figure>
-        <div class="txt">
-          <h3>개발자들을 위한 쇼핑몰</h3>
-          <p>
-            설문을 통해 나만의 개발자 타입을 확인하고, 딱 맞는 아이템을
-            만나보세요.<br />숨겨진 이스터에그도 찾아보세요 — devMart는 오늘도
-            버그 없이 돌아갑니다.
-          </p>
-        </div>
+    <!-- 상단 배너 & 개발자 설문조사 -->
+    <div id="visual" class="visual" style="background:url('assets/images/product-sort/visual_bg.jpg') no-repeat 50% 50%  / cover" >
+      <figure><img src="assets/images/product-sort/3d_icon.png" alt="" /></figure>
+      <div class="txt">
+        <h3>개발자들을 위한 쇼핑몰</h3>
+        <p>설문을 통해 나만의 개발자 타입을 확인하고, 딱 맞는 아이템을 만나보세요.<br>숨겨진 이스터에그도 찾아보세요 — devMart는 오늘도 버그 없이 돌아갑니다.</p>
+      </div>
 
-        <div class="developer-survey">
-          <button class="survey-button" type="button">개발자 설문조사</button>
-          <div class="survey-form hidden">
-            <button class="survey-close" type="button">
-              <img src="features/product-sort/img/close.png" alt="close" />
-            </button>
-            <h2 tabindex="0" aria-label="직군 선택">직군</h2>
-            <div class="role"></div>
+      <div class="developer-survey">
+      <button class="survey-button" type="button">개발자 설문조사</button>
+      <div class="survey-form hidden">
+        <button class="survey-close" type="button"><img src="assets/images/product-sort/close.png" alt="close" /></button>
+        <h2 tabindex="0" aria-label="직군 선택">직군</h2>
+        <div class="role">
+        </div>
 
             <h2 tabindex="0" aria-label="근무 환경 선택">근무 환경</h2>
             <div class="workEnvironment"></div>
@@ -841,88 +829,89 @@
         </div>
       </div>
 
-      <main>
-        <!-- 이 프로그램을 쓰는 개발자들에게 추천하는 리스트 -->
-        <section class="keyword">
+    <main>
+      <!-- 이 프로그램을 쓰는 개발자들에게 추천하는 리스트 -->
+      <section class="keyword">
         <div class="keyword-txt">
           <span>Recommend</span>
           <h2>이 프로그램을 쓰는 분들께 추천합니다</h2>
         </div>
         <ul class="keyword-list">
-        <li>
-          <p class="top">
-            <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/512px-Visual_Studio_Code_1.35_icon.svg.png" alt="Visual Studio Code아이콘"></span>
-            <button class="arrow"><img src="features/product-sort/img/arrow.png" alt="화살표"></button>
-          </p>
-          <div class="bottom">
-            <p class="title">Visual studio code</p>
-            <span class="sub_txt">기초가 단단해야 높은 곳까지 오를 수 있습니다. 공간 감각과 형태 이해부터, 3D 세계로 향하는 탄탄한 출발을 지원합니다</span>
-          </div>
-        </li>
-        <li>
-          <p class="top">
-            <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/500px-Figma-logo.svg.png" alt="Figma아이콘"></span>
-            <button class="arrow"><img src="features/product-sort/img/arrow.png" alt="화살표"></button>
-          </p>
-          <div class="bottom">
-            <p class="title">Figma</p>
-            <span class="sub_txt">자연스럽고 몰입감 있는 3D 렌더링을 위해 조명과 색채 이론을 깊이 있게 다루어, 보는 이의 시선을 사로잡는 작품을 완성합니다</span>
-          </div>
-        </li>
-        <li>
-          <p class="top">
-            <span class="icon"><img src="https://icon.icepanel.io/Technology/svg/Docker.svg" alt="Docker아이콘"></span>
-            <button class="arrow"><img src="features/product-sort/img/arrow.png" alt="화살표"></button>
-          </p>
-          <div class="bottom">
-            <p class="title">Docker</p>
-            <span class="sub_txt">현실감 넘치는 모델링을 위해 필수적인 디테일 작업을 배우고, 하이퀄리티 3D 모델을 완성하는 실전 기술을 마스터하세요</span>
-          </div>
-        </li>
-        <li>
-          <p class="top">
-            <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/PyCharm_Icon.svg/512px-PyCharm_Icon.svg.png" alt="PyCharm아이콘"></span>
-            <button class="arrow"><img src="features/product-sort/img/arrow.png" alt="화살표"></button>
-          </p>
-          <div class="bottom">
-            <p class="title">PyCharm</p>
-            <span class="sub_txt">브랜드 아이덴티티를 녹여낸 3D 아트워크를 통해, 세상에 단 하나뿐인 당신만의 독창적인 작품 세계를 구축합니다</span>
-          </div>
-        </li>
-        <li>
-          <p class="top">
-            <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jupyter_logo.svg/44px-Jupyter_logo.svg.png" alt="Jupyter아이콘"></span>
-            <button class="arrow"><img src="features/product-sort/img/arrow.png" alt="화살표"></button>
-          </p>
-          <div class="bottom">
-            <p class="title">Jupyter Notebook</p>
-            <span class="sub_txt">리얼타임 엔진과 하이엔드 렌더러를 자유자재로 다루며, 차별화된 기술력으로 3D 표현의 극한을 경험해보세요</span>
-          </div>
-        </li>
-        <li>
-          <p class="top">
-            <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Google_Colaboratory_SVG_Logo.svg/960px-Google_Colaboratory_SVG_Logo.svg.png?20221103151432" alt="Google Colab아이콘"></span>
-            <button class="arrow"><img src="features/product-sort/img/arrow.png" alt="화살표"></button>
-          </p>
-          <div class="bottom">
-            <p class="title">Google Colab</p>
-            <span class="sub_txt">리얼타임 엔진과 하이엔드 렌더러를 자유자재로 다루며, 차별화된 기술력으로 3D 표현의 극한을 경험해보세요</span>
-          </div>
-        </li>
-      </ul>
-     </section>
+          <li>
+            <p class="top">
+              <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/512px-Visual_Studio_Code_1.35_icon.svg.png" alt="Visual Studio Code아이콘"></span>
+              <button class="arrow"><img src="assets/images/product-sort/arrow.png" alt="화살표"></button>
+            </p>
+            <div class="bottom">
+              <p class="title">Visual studio code</p>
+              <span class="sub_txt">기초가 단단해야 높은 곳까지 오를 수 있습니다. 공간 감각과 형태 이해부터, 3D 세계로 향하는 탄탄한 출발을 지원합니다</span>
+            </div>
+          </li>
+          <li>
+            <p class="top">
+              <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/500px-Figma-logo.svg.png" alt="Figma아이콘"></span>
+              <button class="arrow"><img src="assets/images/product-sort/arrow.png" alt="화살표"></button>
+            </p>
+            <div class="bottom">
+              <p class="title">Figma</p>
+              <span class="sub_txt">자연스럽고 몰입감 있는 3D 렌더링을 위해 조명과 색채 이론을 깊이 있게 다루어, 보는 이의 시선을 사로잡는 작품을 완성합니다</span>
+            </div>
+          </li>
+          <li>
+            <p class="top">
+              <span class="icon"><img src="https://icon.icepanel.io/Technology/svg/Docker.svg" alt="Docker아이콘"></span>
+              <button class="arrow"><img src="assets/images/product-sort/arrow.png" alt="화살표"></button>
+            </p>
+            <div class="bottom">
+              <p class="title">Docker</p>
+              <span class="sub_txt">현실감 넘치는 모델링을 위해 필수적인 디테일 작업을 배우고, 하이퀄리티 3D 모델을 완성하는 실전 기술을 마스터하세요</span>
+            </div>
+          </li>
+          <li>
+            <p class="top">
+              <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/PyCharm_Icon.svg/512px-PyCharm_Icon.svg.png" alt="PyCharm아이콘"></span>
+              <button class="arrow"><img src="assets/images/product-sort/arrow.png" alt="화살표"></button>
+            </p>
+            <div class="bottom">
+              <p class="title">PyCharm</p>
+              <span class="sub_txt">브랜드 아이덴티티를 녹여낸 3D 아트워크를 통해, 세상에 단 하나뿐인 당신만의 독창적인 작품 세계를 구축합니다</span>
+            </div>
+          </li>
+          <li>
+            <p class="top">
+              <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jupyter_logo.svg/44px-Jupyter_logo.svg.png" alt="Jupyter아이콘"></span>
+              <button class="arrow"><img src="assets/images/product-sort/arrow.png" alt="화살표"></button>
+            </p>
+            <div class="bottom">
+              <p class="title">Jupyter Notebook</p>
+              <span class="sub_txt">리얼타임 엔진과 하이엔드 렌더러를 자유자재로 다루며, 차별화된 기술력으로 3D 표현의 극한을 경험해보세요</span>
+            </div>
+          </li>
+          <li>
+            <p class="top">
+              <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Google_Colaboratory_SVG_Logo.svg/960px-Google_Colaboratory_SVG_Logo.svg.png?20221103151432" alt="Google Colab아이콘"></span>
+              <button class="arrow"><img src="assets/images/product-sort/arrow.png" alt="화살표"></button>
+            </p>
+            <div class="bottom">
+              <p class="title">Google Colab</p>
+              <span class="sub_txt">리얼타임 엔진과 하이엔드 렌더러를 자유자재로 다루며, 차별화된 기술력으로 3D 표현의 극한을 경험해보세요</span>
+            </div>
+          </li>
+        </ul>
+      </section>
 
-        <!-- 이주의 상품 리스트 -->
-        <section class="slide">
-          <div class="txt-wrap">
-            <h2 class="txt">이주의 상품</h2>
+      <!-- 이주의 상품 리스트 -->
+      <section class="slide">
+        <div class="txt-wrap">
+          <h2 class="txt">이주의 상품</h2>
+        </div>
+        <div class="swiper productSwiper" id="productSwiper">
+          <div class="swiper-wrapper">
           </div>
-          <div class="swiper productSwiper" id="productSwiper">
-            <div class="swiper-wrapper"></div>
-          </div>
-          <div class="custom-prev">←</div>
-          <div class="custom-next">→</div>
-        </section>
+        </div>
+        <div class="custom-prev">←</div>
+        <div class="custom-next">→</div>
+      </section>
 
         <!-- 추천템 -->
         <section class="recommended-products">
@@ -979,28 +968,29 @@
           <div class="product-grid fashion"></div>
         </section>
 
-        <!-- 기타 -->
-        <section class="etc">
-          <div class="txt-wrap">
-            <h2 class="section-title transparent" id="section-title6">기타</h2>
-            <button type="button">더보기</button>
+      <!-- 기타 -->
+      <section class="etc">
+        <div class="txt-wrap"> 
+          <h2 class="section-title transparent" id="section-title6">기타</h2>
+          <button type="button">더보기</button>
+        </div>  
+          <div class="product-grid etc">
           </div>
-          <div class="product-grid etc"></div>
-        </section>
-
-        <!-- 전체상품 -->
-        <div class="section-title transparent" id="section-title7"></div>
-        <section class="all-products">
-          <div class="txt-wrap">
-            <h2 class="txt">전체 상품</h2>
-            <p class="btn-wrap" id="btn-wrap">
-              <button class="on" type="button" id="latest">최신순</button>
-              <button type="button" id="sold">구매순</button>
-              <button type="button" id="likes">인기순</button>
-            </p>
-          </div>
-          <ul class="productList" id="productList"></ul>
-        </section>
+      </section>
+        
+      <!-- 전체상품 -->
+      <div class="section-title transparent" id="section-title7"> </div>
+      <section class="all-products">
+        <div class="txt-wrap">
+          <h2 class="txt">전체 상품</h2>
+          <p class="btn-wrap" id="btn-wrap">
+            <button class="on" type="button" id="latest">최신순</button>
+            <button type="button" id="sold">구매순</button>
+            <button type="button" id="likes">인기순</button>
+          </p>
+        </div>
+        <ul class="all-products-list" id="all-products-list"></ul>
+      </section>
 
         <!-- FAQ -->
         <section class="faq">
@@ -1111,29 +1101,23 @@
               </div>
             </div>
 
-            <div class="footer-contact">
-              <h4>Contact</h4>
-              <p>
-                서울특별시 강남구 테헤란로 123<br />사업자등록번호:
-                123-45-67890<br />대표: 황유정
-              </p>
-              <p>
-                이메일:
-                <a href="mailto:support@devmart.com">support@devmart.com</a>
-              </p>
-              <div class="social-icons">
-                <a href="#"><i class="bx bxl-facebook"></i></a>
-                <a href="#"><i class="bx bxl-instagram"></i></a>
-                <a href="#"><i class="bx bxl-github"></i></a>
-              </div>
+          <div class="footer-contact">
+            <h4>Contact</h4>
+            <p>서울특별시 강남구 테헤란로 123<br />사업자등록번호: 123-45-67890<br />대표: 황유정</p>
+            <p>이메일: <a href="mailto:support@devmart.com">support@devmart.com</a></p>
+            <div class="social-icons">
+              <a href="#"><i class="bx bxl-facebook"></i></a>
+              <a href="#"><i class="bx bxl-instagram"></i></a>
+              <a href="#"><i class="bx bxl-github"></i></a>
             </div>
           </div>
-
-          <div class="footer-bottom">
-            <p>© 2025 devMart. All rights reserved.</p>
-          </div>
         </div>
-      </footer>
+
+        <div class="footer-bottom">
+          <p>© 2025 devMart. All rights reserved.</p>
+        </div>
+      </div>
+    </footer> 
 
       <!-- 이스터에그 -->
       <div id="notification" class="notification"></div>

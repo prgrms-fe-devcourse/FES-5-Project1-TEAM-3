@@ -177,6 +177,12 @@ function initSurvey(){
     handleRecommendedProducts();
 }
 
-initSurvey();
-createForm();
-handleOpenSurvey();
+
+/**
+ * 개발자 설문조사 초기화
+ */
+export function initDeveloperSurvey() {
+  initSurvey();
+  createForm();
+  handleOpenSurvey();
+}

@@ -1,7 +1,3 @@
-/* html {
-  scroll-behavior: smooth;
-} */
-
 .header-bar {
   position: fixed;
   z-index: 100;
@@ -53,6 +49,7 @@
   left: 200px;
   top: 63.33px;
   transition: left 0.2s ease-in-out;
+
   > svg > path {
     fill: white;
   }
@@ -66,10 +63,12 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+
   > svg > path {
     fill: black;
   }
 }
+
 .side-menu > .logo-bar > a {
   width: 150px;
   height: 30px;
@@ -97,6 +96,7 @@ ul > .li2 > .chevron1 {
   flex-direction: row;
   align-items: center;
   gap: 10px;
+  
   > svg {
     width: 20px;
     height: 18px;

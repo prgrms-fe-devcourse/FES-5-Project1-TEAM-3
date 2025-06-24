@@ -1,0 +1,126 @@
+.keyword .keyword-txt{
+  margin-bottom: 24px;
+}
+
+.keyword .keyword-txt span {
+  font-size: 16px;
+  font-weight: 400;
+  display: inline-block;
+  color: #0974d8;
+  line-height: 1.6;          
+  letter-spacing: -0.01em;   
+  font-family: 'Pretendard', sans-serif;
+}
+
+.keyword .keyword-txt h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #222;
+  line-height: 1.3;          
+  letter-spacing: -0.02em;   
+  font-family: 'Pretendard', sans-serif;
+}
+
+.keyword ul.keyword-list{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.keyword ul.keyword-list li{
+  border: 1px solid  #ddd;
+  padding: 20px;
+  border-radius: 14px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.keyword ul.keyword-list li .top{
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.keyword ul.keyword-list li .top .icon img{
+  width: 40px;
+}
+
+.keyword ul.keyword-list li .top button.arrow{
+  background: transparent;
+  border: 0;
+  display: none;
+  transition: all 0.9s;
+}
+
+.keyword ul.keyword-list li:hover .top button.arrow{
+  display: block;
+}
+
+.keyword ul.keyword-list li .top button.arrow img{
+  width: 24px;
+}
+
+.keyword ul.keyword-list li:hover{
+  border: 1px solid #222;
+}
+
+
+.keyword ul.keyword-list li .bottom p.title {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 18px;
+  color: #222;
+  font-weight: 600;
+  line-height: 1.5;             
+  letter-spacing: -0.015em;
+  margin-bottom: 4px;
+}
+
+.keyword ul.keyword-list li .bottom span.sub_txt {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 14px;
+  color: #767676;
+  font-weight: 300;
+  line-height: 1.6;             
+  letter-spacing: -0.01em;
+}
+
+
+
+@media (max-width: 1024px) {
+
+  .keyword ul.keyword-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .keyword .keyword-txt span {
+    font-size: 15px;
+  }
+
+  .keyword .keyword-txt h2 {
+    font-size: 22px;
+  }
+
+
+  .keyword ul.keyword-list li .bottom p.title {
+    font-size: 16px;
+  }
+
+  .keyword ul.keyword-list li .bottom span.sub_txt {
+    font-size: 14px;
+  }
+
+}
+
+@media (max-width: 640px) {
+
+  .keyword ul.keyword-list li{
+    padding: 14px;
+  }
+
+    .keyword ul.keyword-list {
+      grid-template-columns: repeat(1, 1fr);;
+  }
+
+}

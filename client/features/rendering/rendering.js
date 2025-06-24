@@ -1,6 +1,6 @@
 import { getStorage } from "../storage.js";
 import { addToWishlist, addToCart, buyNow } from "./floating-event.js";
-import { handleMeme, handlehoverDetection } from "../easter-egg/easter-egg.js";
+import { handleMeme, handleHoverDetection } from "../easter-egg/easter-egg.js";
 import { shuffle } from "../shuffle-products.js";
 import { updateStar } from "../change-theme/update-star.js";
 
@@ -29,8 +29,7 @@ const PRODUCTS_KEY = 'products';
  * @returns {Product[]} local에서 가져온 데이터
  */
 function getProductList(){
-  const data = getStorage(PRODUCTS_KEY);
-  return data;
+  return getStorage(PRODUCTS_KEY);
 }
 
 /**
@@ -61,7 +60,7 @@ function getProductTemplate({ name, price, img, txt, likes, reviews }) {
                 <p class="txt" tabindex="0" aria-label="상품설명:${txt}">${txt}</p>
                 <span class="price" tabindex="0" aria-label="상품가격:${price.toLocaleString()}원">${price.toLocaleString()}원</span>
                 <div class="rating" tabindex="0" aria-label="상품평점 ${likes.toFixed(1)}점, 리뷰 ${reviews}개">
-                    <img class="star" src="features/product-sort/img/star_on.png" alt="평점이미지" />
+                    <img class="star" src="assets/images/product-sort/star_light.png" alt="평점이미지" />
                     <span>${likes.toFixed(1)}</span>
                     <span>(${reviews})</span>
                 </div>
@@ -91,11 +90,10 @@ function bindProductEvents(productElement, { id, name }) {
  * @returns {HTMLElement} 생성된 상품 엘리먼트
  */
 export function createProduct(product) {
-    const div = document.createElement('div');
-    const template = getProductTemplate(product);
-    div.insertAdjacentHTML('beforeend', template);
-    bindProductEvents(div, product)
-    return div;
+    const wrapper = document.createElement('div');
+    wrapper.insertAdjacentHTML('beforeend', getProductTemplate(product));
+    bindProductEvents(wrapper, product)
+    return wrapper;
 }
 
 /**
@@ -129,25 +127,13 @@ function renderCategoryProducts(products) {
 }
 
 
-/**
- * 카테고리 상품 랜더링 핸들러
- * 
- * @returns {void}
- */
-function handleCategoryProducts(){
-    renderCategoryProducts(getProductList());
-}
-
 
 /**
- * 페이지 로드 시 카테고리별 상품 렌더링
+ * 렌더링 초기화
  */
-document.addEventListener('DOMContentLoaded', function () {
-    // 영역별 상품 렌더링
-    handleCategoryProducts();
-
+export function initRendering() {
+    const products = getProductList();
+    renderCategoryProducts(products);
     handleMeme();
-
-    handlehoverDetection();
-});
-
+    handleHoverDetection();
+}

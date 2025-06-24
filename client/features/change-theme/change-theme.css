@@ -1,166 +1,70 @@
-    /* 테마 토글 버튼 스타일 */
-    .theme-toggle {
-      position: fixed;
-      bottom: 20px;
-      right: 15px;
-      z-index: 1000;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      border: none;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+/* 테마 토글 버튼 스타일 */
+.theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 15px;
+  z-index: 1000;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .theme-toggle:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-    }
-
-
-    .theme-toggle svg {
-      width: 24px;
-      height: 24px;
-      fill: white;
-      transition: transform 0.3s ease;
-    }
+.theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
 
 
-    .theme-toggle:hover svg {
-      transform: rotate(180deg);
-    }
+.theme-toggle svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+  transition: transform 0.3s ease;
+}
 
 
-     /* 다크 테마 스타일 */
-    body.dark-theme {
-      background-color: #1a1a1a;
-      color: #e0e0e0;
-    }
+.theme-toggle:hover svg {
+  transform: rotate(180deg);
+}
+
+/* 다크 테마에서 테마 토글 버튼 */
+body.dark-theme .theme-toggle {
+  background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+  box-shadow: 0 4px 15px rgba(255, 216, 155, 0.3);
+}
 
 
-    body.dark-theme header {
-      background-color: #2d2d2d;
-    }
+body.dark-theme .theme-toggle:hover {
+  box-shadow: 0 6px 20px rgba(255, 216, 155, 0.4);
+}
 
-    body.dark-theme .side-menu {
-      background-color: #333;
-    }
-
-    body.dark-theme .side-menu ul li {
-      border-bottom: 0;
-    }
+/* 상품 카드 다크 테마 */
+body.dark-theme .product-card {
+  background-color: #1a1a1a;
+  border: none;
+}
 
 
-    body.dark-theme .side-menu .text,
-    body.dark-theme .side-menu .text2 {
-    color: #e0e0e0;
-    }
-
-    body.dark-theme .visual {
-      background-blend-mode: overlay;
-      background-color: rgba(0, 0, 0, 0.3);
-    }
-
-    body.dark-theme .visual .txt h3 {
-      color: #fff;
-    }
-
-    body.dark-theme .visual .txt p {
-      color: #000;
-    }
-
-    body.dark-theme .keyword {
-      background-color: none;
-    }
-
-    body.dark-theme .keyword-txt h2 {
-      color: #e0e0e0;
-    }
-
-
-    body.dark-theme .keyword-list li {
-      background-color: #262626;
-      border: 1px solid #262626;
-    }
-
-    body.dark-theme .keyword-list li .title {
-      color: #262626;
-      border: 1px solid #262626;
-    }
-
-    body.dark-theme .keyword-list li .sub_txt {
-      color: #ccc;
-    }
-
-    body.dark-theme main section {
-      background-color: none;
-    }
-
-    body.dark-theme .section-title {
-      color: #e0e0e0;
-    }
-
-
-    body.dark-theme .footer {
-      background-color: #1f1f1f;
-      color: #ccc;
-    }
-
-    body.dark-theme .footer h2,
-    body.dark-theme .footer h4 {
-      color: #fff;
-    }
-
-    body.dark-theme .footer a {
-      color: #ccc;
-    }
-
-    body.dark-theme .footer a:hover {
-      color: #667eea;
-    }
-
-     body.dark-theme .developer-survey .survey-form {
-      background-color: #333;
-      color: #e0e0e0;
-    }
-
-
-    /* 다크 테마에서 테마 토글 버튼 */
-    body.dark-theme .theme-toggle {
-      background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
-      box-shadow: 0 4px 15px rgba(255, 216, 155, 0.3);
-    }
-
-
-    body.dark-theme .theme-toggle:hover {
-      box-shadow: 0 6px 20px rgba(255, 216, 155, 0.4);
-    }
-
-   /* 상품 카드 다크 테마 */
-    body.dark-theme .product-card {
-      background-color: #1a1a1a;
-      border: none;
-    }
-
-
-    body.dark-theme .product-card h3 {
-      color: #1a1a1a;
-    }
+body.dark-theme .product-card h3 {
+  color: #1a1a1a;
+}
 
 
      body.dark-theme .product-card p {
       color: #8f8f8f;
     }
 
-  /* 스무스 트랜지션 */
-    * {
-      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-    }
+/* 스무스 트랜지션 */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
 
-   
-    
+

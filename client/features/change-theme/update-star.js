@@ -9,8 +9,8 @@ export function updateStar() {
   stars.forEach(star => {
     if (star.tagName === 'IMG') {
         star.src = isDark
-            ? 'features/product-sort/img/star_dark.png'
-            : 'features/product-sort/img/star_on.png';
+            ? 'assets/images/product-sort/star_dark.png'
+            : 'assets/images/product-sort/star_light.png';
     }
   });
 }

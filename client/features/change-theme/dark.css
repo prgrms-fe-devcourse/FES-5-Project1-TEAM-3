@@ -1,0 +1,153 @@
+/* 다크 테마 스타일 */
+body.dark-theme {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+
+body.dark-theme header {
+  background-color: #2d2d2d;
+}
+
+body.dark-theme .side-menu {
+  background-color: #333;
+}
+
+body.dark-theme .side-menu ul li {
+  border-bottom: 0;
+}
+
+
+body.dark-theme .side-menu .text,
+body.dark-theme .side-menu .text2 {
+  color: #e0e0e0;
+}
+
+body.dark-theme .visual {
+  background-blend-mode: overlay;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .visual .txt h3 {
+  color: #fff;
+}
+
+body.dark-theme .visual .txt p {
+  color: #000;
+}
+
+body.dark-theme .keyword {
+  background-color: none;
+}
+
+body.dark-theme .keyword-txt h2 {
+  color: #e0e0e0;
+}
+
+
+body.dark-theme .keyword-list li {
+  background-color: #262626;
+  border: 1px solid #262626;
+}
+
+body.dark-theme .keyword-list li .title {
+  color: #262626;
+  border: 1px solid #262626;
+}
+
+body.dark-theme .keyword-list li .sub_txt {
+  color: #ccc;
+}
+
+body.dark-theme main section {
+  background-color: none;
+}
+
+body.dark-theme .section-title {
+  color: #e0e0e0;
+}
+
+
+body.dark-theme .footer {
+  background-color: #1f1f1f;
+  color: #ccc;
+}
+
+body.dark-theme .footer h2,
+body.dark-theme .footer h4 {
+  color: #fff;
+}
+
+body.dark-theme .footer a {
+  color: #ccc;
+}
+
+body.dark-theme .footer a:hover {
+  color: #667eea;
+}
+
+body.dark-theme .developer-survey .survey-form {
+  background-color: #333;
+  color: #e0e0e0;
+}
+
+body.dark-theme .info .brand {
+  color: #fff;
+}
+
+body.dark-theme .info .price {
+  color: #fff;
+}
+
+body.dark-theme .info .rating span {
+  color: #797979;
+}
+
+body.dark-theme .txt-wrap button{
+  color: #fff;
+}
+
+body.dark-theme section.faq .tit_wrap .txt .heading{
+  color: #fff;
+}
+
+body.dark-theme .keyword ul.keyword-list li .bottom p.title{
+  color: #fff;
+}
+
+body.dark-theme section.faq ul.faq_list li{
+  border-bottom: 1px solid #3c3c3c;
+}
+
+body.dark-theme section.faq ul.faq_list li:hover{
+  border-bottom: 1px solid #fff;
+}
+
+body.dark-theme section.faq ul.faq_list li .tit h3{
+  color: #fff;
+}
+
+body.dark-theme .faq .tit_wrap button{
+  color: #fff;
+}
+
+body.dark-theme .txt-wrap button{
+  background-color: #1a1a1a;
+}
+
+body.dark-theme .txt-wrap button.on{
+  background-color: #0974d8;;
+}
+
+
+body.dark-theme .txt-wrap h2.txt{
+  color: #fff;
+}
+
+body.dark-theme .survey-form h2{
+  color: #fff;
+}
+
+body.dark-theme section.faq ul.faq_list li .tit h3::before {
+  background-color: #666;
+}
