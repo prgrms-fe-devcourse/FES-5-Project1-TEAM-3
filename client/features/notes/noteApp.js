@@ -17,7 +17,7 @@ export function renderNoteApp() {
     mainContent.style.display = 'none';
 
     noteSection.innerHTML = `
-        <h1>질문 목록</h1>
+        <h1>Q&A</h1>
         <button id="create-note">새 질문글 작성</button>
         <ul id="note-list"></ul>
       `;
@@ -75,7 +75,7 @@ export function createNote() {
       'Content-Type': 'application/json',
       'x-username': USERNAME,
     },
-    body: JSON.stringify({ title: '새 노트', documents: [] }),
+    body: JSON.stringify({ title: '새 질문', documents: [] }),
   })
     .then((res) => res.json())
     .then((data) => {
@@ -123,7 +123,11 @@ export function saveNote(id) {
       'x-username': USERNAME,
     },
     body: JSON.stringify({ title, documents }),
-  }).then(() => alert('저장 완료!'));
+  }).then(() => {
+    alert('저장 완료!');
+    history.pushState({}, '', '/note');
+    renderNoteApp();
+  });
 }
 
 export function deleteNote(id) {
@@ -134,6 +138,7 @@ export function deleteNote(id) {
     },
   }).then(() => {
     alert('삭제 완료!');
+    history.pushState({}, '', '/note');
     renderNoteApp();
   });
 }
