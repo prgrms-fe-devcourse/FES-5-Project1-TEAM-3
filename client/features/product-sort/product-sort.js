@@ -139,7 +139,7 @@ new Swiper(".productSwiper", {
     prevEl: ".custom-prev",
   },
 
-  // ✅ 반응형 설정
+  // 반응형 설정
   breakpoints: {
     // 0 ~ 639px
     0: { slidesPerView: 1, spaceBetween: 10, },
@@ -152,7 +152,7 @@ new Swiper(".productSwiper", {
 }
 
 /**
- * product-sort 모듈을 초기화합니다.
+ * product-sort 모듈 초기화
  * @param {Object} [opts]
  * @param {string} [opts.filterButtonSelector='#btn-wrap button']
  * @param {string} [opts.sliderSelector='#productSwiper']
@@ -168,8 +168,3 @@ export function initProductSort({
   renderAllProducts(products, productListSelector);
   handleFilterButtons(filterButtonSelector);
 }
-
-
-// slideProductList(getProductList());
-// renderAllProducts(getProductList());
-// handleFilterButtons();

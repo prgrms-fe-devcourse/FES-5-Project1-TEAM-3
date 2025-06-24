@@ -46,20 +46,7 @@ export function handleHoverDetection() {
     }
   });
 }
-// export function handleHoverDetection(){
-//   const products = document.querySelectorAll('.product-card');
 
-//   products.forEach(card => {
-//     card.addEventListener('mouseenter',()=>{
-//       currentHover = card;
-//     });
-
-//     card.addEventListener('mouseleave',()=>{
-//       currentHover = null;
-//     });
-
-//   })
-// }
 
 /**
  * 개발자 밈 출력 핸들러
@@ -97,7 +84,7 @@ export function handleMeme(){
 }
 
 /**
- * 개발자 밈 출력 시 효과음을 재생합니다.
+ * 개발자 밈 출력 시 효과음을 재생
  *
  * @returns {void}
  */
@@ -108,6 +95,9 @@ function playMemeSound(){
   audio.play();
 }
 
+/**
+ * 이스터에그 함수 초기화
+ */
 export function initEasterEgg() {
   handleHoverDetection();
   handleMeme();
@@ -119,16 +109,4 @@ export function initEasterEgg() {
   console.log('%c♡。　／　　｜　　＼。　♡', 'color: orange; font-size: 16px;');
   console.log('%c。　♡。 　　。　　♡。', 'color: pink; font-size: 16px;');
 }
-
-// handlehoverDetection();
-// handleMeme();
-
-// /**
-//  * 콘솔 이스터에그
-//  */
-// console.log('%c。　♡ 。　　♡。　　♡', 'color: pink; font-size: 16px;');
-// console.log('%c♡。　＼　　｜　　／。　♡', 'color: orange; font-size: 16px;');
-// console.log('%c\tdevMart 짱', 'color: gold; font-size: 18px; font-weight: bold;');
-// console.log('%c♡。　／　　｜　　＼。　♡', 'color: orange; font-size: 16px;');
-// console.log('%c。　♡。 　　。　　♡。', 'color: pink; font-size: 16px;');
 

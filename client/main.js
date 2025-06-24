@@ -1,3 +1,4 @@
+// import { includeHTML } from './features/include/include-html.js';
 import './features/products.js';
 import './features/storage.js';
 import './features/shuffle-products.js'
@@ -10,19 +11,16 @@ import { initRecommendedProducts, handleRecommendedProducts } from './features/d
 import { initThemeToggle } from './features/change-theme/change-theme.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  initThemeToggle({ /*…*/ });
+
+  initThemeToggle({ toggleId: 'themeToggle', darkClass: 'dark-theme', storageKey: 'theme' });
   initNavigation();
-
-  // 1) 카테고리 상품 렌더링
   initRendering();
-
-  // 2) 전체 상품 리스팅 & 정렬/슬라이드
-  initProductSort({ /*…*/ });
-
-  // 이제 카드가 모두 생성됐으니 이스터에그 초기화
+  initProductSort({
+    filterButtonSelector: '#btn-wrap button',
+    sliderSelector:       '#productSwiper',
+    productListSelector:  '#all-products-list'
+  });
   initEasterEgg();
-
-  // 나머지
   initRecommendedProducts();
   initDeveloperSurvey();
   handleRecommendedProducts();

@@ -12,14 +12,19 @@
 
       <link rel="stylesheet" href="./reset.css" />
       <link rel="stylesheet" href="./style.css" />
-      <link rel="stylesheet" href="./features/product-sort/product-sort.css" />
-      <link rel="stylesheet" href="./features/easter-egg/easter-egg.css" />
-      <link rel="stylesheet" href="./features/developer-survey/developer-survey.css" />
       <link rel="stylesheet" href="./features/navigation/navigation.css" />
+      <link rel="stylesheet" href="./features/easter-egg/easter-egg.css" />
       <link rel="stylesheet" href="./features/rendering/rendering.css" />
+      <link rel="stylesheet" href="./features/product-sort/product-sort.css" />
+      <link rel="stylesheet" href="./features/developer-survey/developer-survey.css" />
+      <link rel="stylesheet" href="./features/product-sort/visual.css" />
+      <link rel="stylesheet" href="./features/product-sort/recommend-programs.css" />
+      <link rel="stylesheet" href="./features/product-sort/slide.css" />
+      <link rel="stylesheet" href="./features/product-sort/footer.css" />
       <link rel="stylesheet" href="./features/change-theme/change-theme.css" />
+      <link rel="stylesheet" href="./features/change-theme/dark.css" />
         
-      <script type="module" src="./main.js" ></script>
+      <script type="module" src="./main.js" defer></script>
   </head>
   <body>
     <!-- 테마 토글 버튼 -->
@@ -757,88 +762,88 @@
     </div>
 
     <main>
-        <!-- 이 프로그램을 쓰는 개발자들에게 추천하는 리스트 -->
-        <section class="keyword">
+      <!-- 이 프로그램을 쓰는 개발자들에게 추천하는 리스트 -->
+      <section class="keyword">
         <div class="keyword-txt">
           <span>Recommend</span>
           <h2>이 프로그램을 쓰는 분들께 추천합니다</h2>
         </div>
         <ul class="keyword-list">
-        <li>
-          <p class="top">
-            <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/512px-Visual_Studio_Code_1.35_icon.svg.png" alt=""></span>
-            <button class="arrow"><img src="assets/images/product-sort/arrow.png" alt="화살표"></button>
-          </p>
-          <div class="bottom">
-            <p class="title">Visual studio code</p>
-            <span class="sub_txt">기초가 단단해야 높은 곳까지 오를 수 있습니다. 공간 감각과 형태 이해부터, 3D 세계로 향하는 탄탄한 출발을 지원합니다</span>
-          </div>
-        </li>
-        <li>
-          <p class="top">
-            <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/500px-Figma-logo.svg.png" alt=""></span>
-            <button class="arrow"><img src="assets/images/product-sort/arrow.png" alt="화살표"></button>
-          </p>
-          <div class="bottom">
-            <p class="title">Figma</p>
-            <span class="sub_txt">자연스럽고 몰입감 있는 3D 렌더링을 위해 조명과 색채 이론을 깊이 있게 다루어, 보는 이의 시선을 사로잡는 작품을 완성합니다</span>
-          </div>
-        </li>
-        <li>
-          <p class="top">
-            <span class="icon"><img src="https://icon.icepanel.io/Technology/svg/Docker.svg" alt=""></span>
-            <button class="arrow"><img src="assets/images/product-sort/arrow.png" alt="화살표"></button>
-          </p>
-          <div class="bottom">
-            <p class="title">Docker</p>
-            <span class="sub_txt">현실감 넘치는 모델링을 위해 필수적인 디테일 작업을 배우고, 하이퀄리티 3D 모델을 완성하는 실전 기술을 마스터하세요</span>
-          </div>
-        </li>
-        <li>
-          <p class="top">
-            <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/PyCharm_Icon.svg/512px-PyCharm_Icon.svg.png" alt=""></span>
-            <button class="arrow"><img src="assets/images/product-sort/arrow.png" alt="화살표"></button>
-          </p>
-          <div class="bottom">
-            <p class="title">PyCharm</p>
-            <span class="sub_txt">브랜드 아이덴티티를 녹여낸 3D 아트워크를 통해, 세상에 단 하나뿐인 당신만의 독창적인 작품 세계를 구축합니다</span>
-          </div>
-        </li>
-        <li>
-          <p class="top">
-            <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jupyter_logo.svg/44px-Jupyter_logo.svg.png" alt=""></span>
-            <button class="arrow"><img src="assets/images/product-sort/arrow.png" alt="화살표"></button>
-          </p>
-          <div class="bottom">
-            <p class="title">Jupyter Notebook</p>
-            <span class="sub_txt">리얼타임 엔진과 하이엔드 렌더러를 자유자재로 다루며, 차별화된 기술력으로 3D 표현의 극한을 경험해보세요</span>
-          </div>
-        </li>
-        <li>
-          <p class="top">
-            <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Google_Colaboratory_SVG_Logo.svg/960px-Google_Colaboratory_SVG_Logo.svg.png?20221103151432" alt=""></span>
-            <button class="arrow"><img src="assets/images/product-sort/arrow.png" alt="화살표"></button>
-          </p>
-          <div class="bottom">
-            <p class="title">Google Colab</p>
-            <span class="sub_txt">리얼타임 엔진과 하이엔드 렌더러를 자유자재로 다루며, 차별화된 기술력으로 3D 표현의 극한을 경험해보세요</span>
-          </div>
-        </li>
-      </ul>
-     </section>
-
-        <!-- 이주의 상품 리스트 -->
-        <section class="slide">
-          <div class="txt-wrap">
-            <h2 class="txt">이주의 상품</h2>
-          </div>
-          <div class="swiper productSwiper" id="productSwiper">
-            <div class="swiper-wrapper">
+          <li>
+            <p class="top">
+              <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/512px-Visual_Studio_Code_1.35_icon.svg.png" alt=""></span>
+              <button class="arrow"><img src="assets/images/product-sort/arrow.png" alt="화살표"></button>
+            </p>
+            <div class="bottom">
+              <p class="title">Visual studio code</p>
+              <span class="sub_txt">기초가 단단해야 높은 곳까지 오를 수 있습니다. 공간 감각과 형태 이해부터, 3D 세계로 향하는 탄탄한 출발을 지원합니다</span>
             </div>
+          </li>
+          <li>
+            <p class="top">
+              <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/500px-Figma-logo.svg.png" alt=""></span>
+              <button class="arrow"><img src="assets/images/product-sort/arrow.png" alt="화살표"></button>
+            </p>
+            <div class="bottom">
+              <p class="title">Figma</p>
+              <span class="sub_txt">자연스럽고 몰입감 있는 3D 렌더링을 위해 조명과 색채 이론을 깊이 있게 다루어, 보는 이의 시선을 사로잡는 작품을 완성합니다</span>
+            </div>
+          </li>
+          <li>
+            <p class="top">
+              <span class="icon"><img src="https://icon.icepanel.io/Technology/svg/Docker.svg" alt=""></span>
+              <button class="arrow"><img src="assets/images/product-sort/arrow.png" alt="화살표"></button>
+            </p>
+            <div class="bottom">
+              <p class="title">Docker</p>
+              <span class="sub_txt">현실감 넘치는 모델링을 위해 필수적인 디테일 작업을 배우고, 하이퀄리티 3D 모델을 완성하는 실전 기술을 마스터하세요</span>
+            </div>
+          </li>
+          <li>
+            <p class="top">
+              <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/PyCharm_Icon.svg/512px-PyCharm_Icon.svg.png" alt=""></span>
+              <button class="arrow"><img src="assets/images/product-sort/arrow.png" alt="화살표"></button>
+            </p>
+            <div class="bottom">
+              <p class="title">PyCharm</p>
+              <span class="sub_txt">브랜드 아이덴티티를 녹여낸 3D 아트워크를 통해, 세상에 단 하나뿐인 당신만의 독창적인 작품 세계를 구축합니다</span>
+            </div>
+          </li>
+          <li>
+            <p class="top">
+              <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jupyter_logo.svg/44px-Jupyter_logo.svg.png" alt=""></span>
+              <button class="arrow"><img src="assets/images/product-sort/arrow.png" alt="화살표"></button>
+            </p>
+            <div class="bottom">
+              <p class="title">Jupyter Notebook</p>
+              <span class="sub_txt">리얼타임 엔진과 하이엔드 렌더러를 자유자재로 다루며, 차별화된 기술력으로 3D 표현의 극한을 경험해보세요</span>
+            </div>
+          </li>
+          <li>
+            <p class="top">
+              <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Google_Colaboratory_SVG_Logo.svg/960px-Google_Colaboratory_SVG_Logo.svg.png?20221103151432" alt=""></span>
+              <button class="arrow"><img src="assets/images/product-sort/arrow.png" alt="화살표"></button>
+            </p>
+            <div class="bottom">
+              <p class="title">Google Colab</p>
+              <span class="sub_txt">리얼타임 엔진과 하이엔드 렌더러를 자유자재로 다루며, 차별화된 기술력으로 3D 표현의 극한을 경험해보세요</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 이주의 상품 리스트 -->
+      <section class="slide">
+        <div class="txt-wrap">
+          <h2 class="txt">이주의 상품</h2>
+        </div>
+        <div class="swiper productSwiper" id="productSwiper">
+          <div class="swiper-wrapper">
           </div>
-          <div class="custom-prev">←</div>
-          <div class="custom-next">→</div>
-        </section>
+        </div>
+        <div class="custom-prev">←</div>
+        <div class="custom-next">→</div>
+      </section>
 
       <!-- 추천템 -->
       <section class="recommended-products">
@@ -975,54 +980,51 @@
 
     <!-- footer -->
     <footer class="footer">
-    <div class="footer-container">
-    <div class="footer-grid">
-      <!-- 브랜드 영역 -->
-      <div class="footer-brand">
-        <h2>devMart</h2>
-        <p>당신의 개발자 라이프를 위한 스마트한 쇼핑 플랫폼</p>
-      </div>
+      <div class="footer-container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <h2>devMart</h2>
+            <p>당신의 개발자 라이프를 위한 스마트한 쇼핑 플랫폼</p>
+          </div>    
+          <div class="footer-menu">
+            <div class="menu-column">
+              <h4>회사</h4>
+              <ul>
+                <li><a href="#">회사소개</a></li>
+                <li><a href="#">채용</a></li>
+                <li><a href="#">파트너십</a></li>
+                <li><a href="#">공지사항</a></li>
+              </ul>
+            </div>
+            <div class="menu-column">
+              <h4>고객지원</h4>
+              <ul>
+                <li><a href="#">자주 묻는 질문</a></li>
+                <li><a href="#">1:1 문의</a></li>
+                <li><a href="#">배송/반품 안내</a></li>
+                <li><a href="#">이용약관</a></li>
+                <li><a href="#">개인정보처리방침</a></li>
+              </ul>
+            </div>
+          </div>
 
-      <!-- 메뉴 영역 -->
-      <div class="footer-menu">
-        <div class="menu-column">
-          <h4>회사</h4>
-          <ul>
-            <li><a href="#">회사소개</a></li>
-            <li><a href="#">채용</a></li>
-            <li><a href="#">파트너십</a></li>
-            <li><a href="#">공지사항</a></li>
-          </ul>
+          <div class="footer-contact">
+            <h4>Contact</h4>
+            <p>서울특별시 강남구 테헤란로 123<br />사업자등록번호: 123-45-67890<br />대표: 황유정</p>
+            <p>이메일: <a href="mailto:support@devmart.com">support@devmart.com</a></p>
+            <div class="social-icons">
+              <a href="#"><i class="bx bxl-facebook"></i></a>
+              <a href="#"><i class="bx bxl-instagram"></i></a>
+              <a href="#"><i class="bx bxl-github"></i></a>
+            </div>
+          </div>
         </div>
-        <div class="menu-column">
-          <h4>고객지원</h4>
-          <ul>
-            <li><a href="#">자주 묻는 질문</a></li>
-            <li><a href="#">1:1 문의</a></li>
-            <li><a href="#">배송/반품 안내</a></li>
-            <li><a href="#">이용약관</a></li>
-            <li><a href="#">개인정보처리방침</a></li>
-          </ul>
+
+        <div class="footer-bottom">
+          <p>© 2025 devMart. All rights reserved.</p>
         </div>
       </div>
-
-      <div class="footer-contact">
-        <h4>Contact</h4>
-        <p>서울특별시 강남구 테헤란로 123<br />사업자등록번호: 123-45-67890<br />대표: 황유정</p>
-        <p>이메일: <a href="mailto:support@devmart.com">support@devmart.com</a></p>
-        <div class="social-icons">
-          <a href="#"><i class="bx bxl-facebook"></i></a>
-          <a href="#"><i class="bx bxl-instagram"></i></a>
-          <a href="#"><i class="bx bxl-github"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>© 2025 devMart. All rights reserved.</p>
-    </div>
-    </div>
-    </footer>   
+    </footer> 
 
     <!-- 이스터에그 -->
     <div id="notification" class="notification"></div>

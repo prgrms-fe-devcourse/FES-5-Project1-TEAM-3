@@ -128,38 +128,12 @@ function renderCategoryProducts(products) {
 
 
 
-
-/** 외부에서 호출할 초기화 함수 */
+/**
+ * 렌더링 초기화
+ */
 export function initRendering() {
     const products = getProductList();
     renderCategoryProducts(products);
     handleMeme();
     handleHoverDetection();
 }
-
-
-
-// /**
-//  * 카테고리 상품 랜더링 핸들러
-//  * 
-//  * @returns {void}
-//  */
-// function handleCategoryProducts(){
-//     renderCategoryProducts(getProductList());
-// }
-
-
-
-
-// /**
-//  * 페이지 로드 시 카테고리별 상품 렌더링
-//  */
-// document.addEventListener('DOMContentLoaded', function () {
-//     // 영역별 상품 렌더링
-//     handleCategoryProducts();
-
-//     handleMeme();
-
-//     handlehoverDetection();
-// });
-
