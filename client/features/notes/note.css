@@ -48,7 +48,8 @@
 #save-note,
 #delete-note,
 #create-note,
-#ask-button {
+#ask-button,
+#go-back {
   background-color: #0974d8;
   color: white;
   border: none;
@@ -63,7 +64,8 @@
 #save-note:hover,
 #delete-note:hover,
 #create-note:hover,
-#ask-button:hover {
+#ask-button:hover,
+#go-back:hover {
   background-color: #4338ca;
 }
 

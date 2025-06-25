@@ -88,40 +88,60 @@ export function openNoteEditor(id) {
     .then((res) => res.json())
     .then((doc) => {
       const contentText = doc.content || '';
-
       const root = document.querySelector('#note-section');
-      root.innerHTML = `
-            <input id="note-title" value="${doc.title}" />
-            <textarea id="note-content">${contentText}</textarea>
-            <div id="note-preview" class="markdown-body"></div>
-            <button id="save-note">저장</button>
-            <button id="delete-note">삭제</button>
-          `;
 
-      // 처음 로딩 시 미리보기
+      root.innerHTML = `
+        <input id="note-title" value="${doc.title}" />
+        <textarea id="note-content">${contentText}</textarea>
+        <div id="note-status" style="margin: 5px 0; color: gray;"></div>
+        <div id="note-preview" class="markdown-body"></div>
+        <div style="margin-top: 10px;">
+          <button id="go-back">뒤로가기</button>
+        </div>
+      `;
+
+      const titleEl = document.querySelector('#note-title');
+      const contentEl = document.querySelector('#note-content');
+      const statusEl = document.querySelector('#note-status');
+
+      // 초기 렌더링
       document.querySelector('#note-preview').innerHTML =
         marked.parse(contentText);
 
-      // 입력할 때마다 마크다운 렌더링
-      document.querySelector('#note-content').addEventListener('input', (e) => {
-        const html = marked.parse(e.target.value);
+      // 뒤로가기
+      document
+        .querySelector('#go-back')
+        .addEventListener('click', () => history.back());
+
+      // 자동 저장 디바운스
+      let autoSaveTimer = null;
+      contentEl.addEventListener('input', () => {
+        const html = marked.parse(contentEl.value);
         document.querySelector('#note-preview').innerHTML = html;
+
+        clearTimeout(autoSaveTimer);
+        statusEl.textContent = '저장 중...';
+
+        autoSaveTimer = setTimeout(() => {
+          (async () => {
+            try {
+              await saveNote(id, titleEl.value, contentEl.value);
+              statusEl.textContent = '저장 완료!';
+              statusEl.style.color = '';
+            } catch (err) {
+              statusEl.textContent = '❗저장 실패';
+              statusEl.style.color = 'red';
+              console.error(err);
+            }
+          })();
+        }, 1000);
       });
-      document
-        .querySelector('#save-note')
-        .addEventListener('click', () => saveNote(id));
-      document
-        .querySelector('#delete-note')
-        .addEventListener('click', () => deleteNote(id));
     });
 }
 
 // 저장
-export function saveNote(id) {
-  const title = document.querySelector('#note-title').value;
-  const content = document.querySelector('#note-content').value;
-
-  fetch(`${API_URL}/${id}`, {
+export function saveNote(id, title, content) {
+  return fetch(`${API_URL}/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -131,9 +151,6 @@ export function saveNote(id) {
       title,
       content,
     }),
-  }).then(() => {
-    alert('저장 완료!');
-    history.back();
   });
 }
 
