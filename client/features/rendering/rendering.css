@@ -297,10 +297,23 @@ html, body {
         transition-delay: 0.5s;
     }
 
+    .action-btn,
+    .action-icons 
+    {
+        flex-direction: row;
+    }
+
+    .action-btn.cart-btn::before,
+    .action-btn.wishlist-btn::before,
+    .action-btn.buy-btn::before
+    { 
+        top: 50%;
+        right: 20%; 
+    }
+
     .survey-form {
         width: 93vw;
         padding: 20px;
-        top: 50%;
         z-index: 1000;
         border-radius: 0;
     }
