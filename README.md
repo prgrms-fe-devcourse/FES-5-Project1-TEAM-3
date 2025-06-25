@@ -141,7 +141,7 @@ export function renderProductList() {
 ```
 ### 들여쓰기
 ```
-들여쓰기는 두 칸 Tab 으로 한다.
+들여쓰기는 한 칸 Tab 으로 한다.
 ```
 
 ### 줄바꿈
