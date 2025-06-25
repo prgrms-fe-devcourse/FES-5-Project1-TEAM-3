@@ -15,7 +15,7 @@ button.survey-button {
   border-radius: 6px;
   border: 1px solid #ddd;
   background-color: #fff;
-  cursor: pointer;
+  cursor: pointer; 
   overflow: hidden; 
   transition: color 0.3s ease;
   z-index: 1;
@@ -255,10 +255,8 @@ button.survey-submit:hover {
 
 @media (max-width: 640px) {
   .survey-form {
-    width: 90vw;
-    height: 100%;
+    width: 90%;
     padding: 20px;
-    top: 0;
   }
 
   .survey-form h2 {
