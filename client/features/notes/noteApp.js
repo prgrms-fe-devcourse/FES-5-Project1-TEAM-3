@@ -29,7 +29,7 @@ export function renderNoteApp() {
     loadNoteList();
   } else if (location.pathname.startsWith('/note/')) {
     const id = location.pathname.split('/')[2];
-    openNoteEditor(id);
+    openNoteView(id);
     return;
   } else {
     noteSection.style.display = 'none';
@@ -52,107 +52,144 @@ export function loadNoteList() {
   })
     .then((res) => res.json())
     .then((data) => {
-      const ul = document.querySelector('#note-list');
-      ul.innerHTML = '';
-      data.forEach((doc) => {
-        const li = document.createElement('li');
-        li.textContent = doc.title;
-        li.addEventListener('click', () => {
-          history.pushState({}, '', `/note/${doc.id}`);
-          renderNoteApp();
-        });
-        ul.appendChild(li);
-      });
+      const ul = renderTree(data);
+      const noteList = document.querySelector('#note-list');
+      noteList.innerHTML = '';
+      noteList.appendChild(ul);
     });
 }
 
-export function createNote() {
+export function createNote(parent = null) {
   fetch(API_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'x-username': USERNAME,
     },
-    body: JSON.stringify({
-      title: '새 질문',
-      documents: [
-        {
-          title: '새 질문 내용',
-          documents: [],
-          content: '',
-        },
-      ],
-    }),
+    body: JSON.stringify({ title: '새 질문', content: '', parent }),
   })
     .then((res) => res.json())
     .then((data) => {
       openNoteEditor(data.id);
+      loadNoteList();
     });
 }
 
 export function openNoteEditor(id) {
-    if (location.pathname !== `/note/${id}`) {
-      history.pushState({}, '', `/note/${id}`);
-    }
-    fetch(`${API_URL}/${id}`, {
-      headers: {
-        'Content-Type': 'application/json',
-        'x-username': USERNAME,
-      },
-    })
-      .then((res) => res.json())
-      .then((doc) => {
-        const contentText = doc.content || ''; 
-  
-        const root = document.querySelector('#note-section');
-        root.innerHTML = `
-            <input id="note-title" value="${doc.title}" />
-            <textarea id="note-content">${contentText}</textarea>
-            <div id="note-preview" class="markdown-body"></div>
-            <button id="save-note">저장</button>
-            <button id="delete-note">삭제</button>
-          `;
-  
-        // 처음 로딩 시 미리보기
-        document.querySelector('#note-preview').innerHTML =
-          marked.parse(contentText);
-  
-        // 입력할 때마다 마크다운 렌더링
-        document.querySelector('#note-content').addEventListener('input', (e) => {
-          const html = marked.parse(e.target.value);
-          document.querySelector('#note-preview').innerHTML = html;
-        });
-        document
-          .querySelector('#save-note')
-          .addEventListener('click', () => saveNote(id));
-        document
-          .querySelector('#delete-note')
-          .addEventListener('click', () => deleteNote(id));
-      });
+  if (location.pathname !== `/note/${id}`) {
+    history.pushState({}, '', `/note/${id}`);
   }
-  
+  fetch(`${API_URL}/${id}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'x-username': USERNAME,
+    },
+  })
+    .then((res) => res.json())
+    .then((doc) => {
+      const contentText = doc.content || '';
+      const root = document.querySelector('#note-section');
+
+      root.innerHTML = `
+        <input id="note-title" value="${doc.title}" />
+        <textarea id="note-content">${contentText}</textarea>
+        <div id="note-status" style="margin: 5px 0; color: gray;"></div>
+        <div id="note-preview" class="markdown-body"></div>
+        <div style="margin-top: 10px;">
+          <button id="go-back">뒤로가기</button>
+        </div>
+      `;
+
+      const titleEl = document.querySelector('#note-title');
+      const contentEl = document.querySelector('#note-content');
+      const statusEl = document.querySelector('#note-status');
+
+      // 초기 렌더링
+      document.querySelector('#note-preview').innerHTML =
+        marked.parse(contentText);
+
+      // 뒤로가기
+      document
+        .querySelector('#go-back')
+        .addEventListener('click', () => history.back());
+
+      // 자동 저장 디바운스
+      let autoSaveTimer = null;
+      contentEl.addEventListener('input', () => {
+        const html = marked.parse(contentEl.value);
+        document.querySelector('#note-preview').innerHTML = html;
+
+        clearTimeout(autoSaveTimer);
+        statusEl.textContent = '저장 중...';
+
+        autoSaveTimer = setTimeout(() => {
+          (async () => {
+            try {
+              await saveNote(id, titleEl.value, contentEl.value);
+              statusEl.textContent = '저장 완료!';
+              statusEl.style.color = '';
+            } catch (err) {
+              statusEl.textContent = '❗저장 실패';
+              statusEl.style.color = 'red';
+              console.error(err);
+            }
+          })();
+        }, 1000);
+      });
+    });
+}
+
+// 뷰어
+export function openNoteView(id) {
+  fetch(`${API_URL}/${id}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'x-username': USERNAME,
+    },
+  })
+    .then((res) => res.json())
+    .then((doc) => {
+      const root = document.querySelector('#note-section');
+      root.innerHTML = `
+        <h2 id="note-title">${doc.title}</h2>
+        <div id="markdown-body">${marked.parse(doc.content || '')}</div>
+        <div style="margin-top: 10px;">
+          <button id="edit-note">편집</button>
+          <button id="delete-note">삭제</button>
+          <button id="go-back">뒤로가기</button>
+        </div>
+      `;
+
+      document.querySelector('#edit-note').addEventListener('click', () => {
+        openNoteEditor(id);
+      });
+
+      document.querySelector('#delete-note').addEventListener('click', () => {
+        if (confirm('정말 삭제하시겠습니까?')) {
+          deleteNote(id);
+        }
+      });
+
+      document.querySelector('#go-back').addEventListener('click', () => {
+        history.back();
+      });
+    });
+}
 
 // 저장
-export function saveNote(id) {
-    const title = document.querySelector('#note-title').value;
-    const content = document.querySelector('#note-content').value;
-  
-    fetch(`${API_URL}/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-username': USERNAME,
-      },
-      body: JSON.stringify({
-        title,
-        content,
-      }),
-    }).then(() => {
-      alert('저장 완료!');
-      history.back();
-    });
-  }
-  
+export function saveNote(id, title, content) {
+  return fetch(`${API_URL}/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-username': USERNAME,
+    },
+    body: JSON.stringify({
+      title,
+      content,
+    }),
+  });
+}
 
 export function deleteNote(id) {
   fetch(`${API_URL}/${id}`, {
@@ -165,4 +202,44 @@ export function deleteNote(id) {
     history.pushState({}, '', '/note');
     renderNoteApp();
   });
+}
+
+// 트리 구조 렌더링
+export function renderTree(documents, depth = 0) {
+  const ul = document.createElement('ul');
+
+  documents.forEach((doc) => {
+    const li = document.createElement('li');
+
+    // 제목 요소
+    const titleSpan = document.createElement('span');
+    titleSpan.textContent = `${'—'.repeat(depth)} ${doc.title}`;
+    titleSpan.style.cursor = 'pointer';
+    titleSpan.addEventListener('click', (e) => {
+      e.stopPropagation();
+      history.pushState({}, '', `/note/${doc.id}`);
+      renderNoteApp();
+    });
+
+    // 추가 버튼
+    const addBtn = document.createElement('button');
+    addBtn.textContent = '+';
+    addBtn.style.marginLeft = '6px';
+    addBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      createNote(doc.id);
+    });
+
+    li.appendChild(titleSpan);
+    li.appendChild(addBtn);
+
+    // 하위 트리 재귀적으로 렌더링
+    if (doc.documents && doc.documents.length > 0) {
+      li.appendChild(renderTree(doc.documents, depth + 1));
+    }
+
+    ul.appendChild(li);
+  });
+
+  return ul;
 }
