@@ -6,13 +6,21 @@
   gap: 10px;
 }
 
+#title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 #note-section {
-  max-width: 700px;
-  margin: 40px auto;
-  padding: 0 24px;
+  max-width: 100% !important;
+  height: 100vh;
+  margin: 0;
+  padding: 24px 24px;
   font-family: 'Noto Sans KR', sans-serif;
   background-color: white;
-  border-radius: 8px;
+  color: black !important;
+  overflow-x: hidden;
 
   h1 {
     font-size: 2.5rem;
@@ -33,6 +41,7 @@
 #note-content,
 #markdown-body {
   width: 100%;
+  max-width: 100%;
   height: 400px;
   font-size: 1rem;
   border: none;
@@ -44,6 +53,7 @@
   background-color: #f7f7f7;
   padding: 16px;
   border-radius: 6px;
+  box-sizing: border-box;
 }
 
 #save-note,
@@ -70,6 +80,10 @@
 #go-back:hover,
 #edit-note:hover {
   background-color: #4338ca;
+}
+
+#create-note {
+  font-size: 1.2rem;
 }
 
 #note-list li {

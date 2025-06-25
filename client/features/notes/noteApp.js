@@ -19,8 +19,10 @@ export function renderNoteApp() {
     mainContent.style.display = 'none';
 
     noteSection.innerHTML = `
-      <h1>Q&A</h1>
-      <button id="create-note">새 질문글 작성</button>
+    <div id="title-container">
+     <h1>Q&A</h1>
+      <button id="create-note">새 질문 작성</button>
+    </div>
       <ul id="note-list"></ul>
     `;
     document
@@ -66,7 +68,7 @@ export function createNote(parent = null) {
       'Content-Type': 'application/json',
       'x-username': USERNAME,
     },
-    body: JSON.stringify({ title: '새 질문', content: '', parent }),
+    body: JSON.stringify({ title: '제목을 입력하세요...', content: '', parent }),
   })
     .then((res) => res.json())
     .then((data) => {
@@ -92,7 +94,7 @@ export function openNoteEditor(id) {
 
       root.innerHTML = `
         <input id="note-title" value="${doc.title}" />
-        <textarea id="note-content">${contentText}</textarea>
+        <textarea id="note-content" placeholder="내용을 입력하세요...">${contentText}</textarea>
         <div id="note-status" style="margin: 5px 0; color: gray;"></div>
         <div id="note-preview" class="markdown-body"></div>
         <div style="margin-top: 10px;">
