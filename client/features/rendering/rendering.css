@@ -286,6 +286,12 @@ html, body {
 }
 
 @media (max-width: 768px) {
+    .notification {
+        white-space: normal;
+        max-width: 80vw;
+        word-break: break-word;
+        line-height: 20px;
+    }
     .product-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
