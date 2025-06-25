@@ -40,3 +40,22 @@
   position: relative;
   overflow: hidden;
 }
+
+
+@media (max-width: 768px) {
+  .meme{
+    top: 10%;
+    width: 230px;
+    font-size: 14px;
+  }
+
+}
+
+@media (max-width: 640px){
+  .meme{
+    top: 10%;
+    width: 140px;
+    font-size: 14px;
+    
+  }
+}
