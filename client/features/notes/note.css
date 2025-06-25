@@ -30,7 +30,8 @@
   width: 100%;
 }
 
-#note-content {
+#note-content,
+#markdown-body {
   width: 100%;
   height: 400px;
   font-size: 1rem;
@@ -49,7 +50,8 @@
 #delete-note,
 #create-note,
 #ask-button,
-#go-back {
+#go-back,
+#edit-note {
   background-color: #0974d8;
   color: white;
   border: none;
@@ -65,7 +67,8 @@
 #delete-note:hover,
 #create-note:hover,
 #ask-button:hover,
-#go-back:hover {
+#go-back:hover,
+#edit-note:hover {
   background-color: #4338ca;
 }
 

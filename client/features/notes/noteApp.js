@@ -29,7 +29,7 @@ export function renderNoteApp() {
     loadNoteList();
   } else if (location.pathname.startsWith('/note/')) {
     const id = location.pathname.split('/')[2];
-    openNoteEditor(id);
+    openNoteView(id);
     return;
   } else {
     noteSection.style.display = 'none';
@@ -135,6 +135,43 @@ export function openNoteEditor(id) {
             }
           })();
         }, 1000);
+      });
+    });
+}
+
+// 뷰어
+export function openNoteView(id) {
+  fetch(`${API_URL}/${id}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'x-username': USERNAME,
+    },
+  })
+    .then((res) => res.json())
+    .then((doc) => {
+      const root = document.querySelector('#note-section');
+      root.innerHTML = `
+        <h2 id="note-title">${doc.title}</h2>
+        <div id="markdown-body">${marked.parse(doc.content || '')}</div>
+        <div style="margin-top: 10px;">
+          <button id="edit-note">편집</button>
+          <button id="delete-note">삭제</button>
+          <button id="go-back">뒤로가기</button>
+        </div>
+      `;
+
+      document.querySelector('#edit-note').addEventListener('click', () => {
+        openNoteEditor(id);
+      });
+
+      document.querySelector('#delete-note').addEventListener('click', () => {
+        if (confirm('정말 삭제하시겠습니까?')) {
+          deleteNote(id);
+        }
+      });
+
+      document.querySelector('#go-back').addEventListener('click', () => {
+        history.back();
       });
     });
 }
