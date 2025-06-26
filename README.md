@@ -9,41 +9,32 @@
 ## 프로젝트 구조
 ```
 /devMart
-│
-├── /client 
-│ ├── /assets 
-│ │ ├── /images
-| | | ├── /product-image-removebg
-| | | └── /product-sort
-| | |
-│ │ └── /sounds 
-│ │
-│ ├── /features
-│ │ ├── /change-theme         (테마 전환 기능)
-│ │ ├── /developer-survey     (개발자 유형 테스트)
-│ │ ├── /easter-egg           (밈 이스터에그)
-│ │ ├── /navigation           (좌측 내비게이션 메뉴)
-│ │ ├── /notes                (노션형 질문 남기기)
-│ │ ├── /product-sort         (상품 정렬 기능)
-│ │ ├── /rendering            (상품 리스트 렌더링 관련 기능)
-│ │ ├── products.js           (상품 데이터 정의)
-│ │ ├── shuffle-products.js   (상품 무작위 정렬 함수)
-│ │ └── storage.js            (localStorage 제어)
-│ │
-│ │
-│ ├── index.html 
-│ ├── main.js 
+├── /client
+│ ├── /assets # 이미지, 효과음
+│ ├── /features # 주요 기능별 모듈
+│ │ ├── /change-theme # 테마 전환 기능
+│ │ ├── /developer-survey # 개발자 유형 테스트
+│ │ ├── /easter-egg # 밈 이스터에그
+│ │ ├── /navigation # 좌측 내비게이션 메뉴
+│ │ ├── /notes # 마크다운 노트 기능
+│ │ ├── /product-sort # 상품 정렬 기능
+│ │ ├── /rendering # 상품 리스트 렌더링 관련 기능
+│ │ ├── products.js # 상품 데이터 정의
+│ │ ├── shuffle-products.js # 상품 무작위 정렬
+│ │ └── storage.js # localStorage 제어
+│ ├── index.html
+│ ├── main.js
 │ ├── reset.css
-│ └── style.css 
-│
-├── /node_modules 
-│
-├── .gitignore 
-├── .prettierrc.cjs 
-├── eslint.config.mjs 
-├── package-lock.json 
-├── package.json 
-└── README.md 
+│ └── style.css
+├── /node_modules
+├── .gitignore
+├── .prettierrc.cjs
+├── db.json
+├── eslint.config.mjs
+├── package-lock.json
+├── package.json
+└── README.md
+
 
 ```
 
