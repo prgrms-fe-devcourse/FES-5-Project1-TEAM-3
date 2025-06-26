@@ -71,7 +71,7 @@
     npm run dev    # 클라이언트 실행
     ```
 
-2. [Vercel 배포 링크](https://dev-mart3.vercel.app/)로도 접속하실 수 있습니다.
+2. [배포 링크](https://devmart-final.netlify.app/)로도 접속하실 수 있습니다.
 
 ## 유저 플로우
 ![Image](https://github.com/user-attachments/assets/5b59dd60-2d38-4e24-9f88-d57686f0597b)
