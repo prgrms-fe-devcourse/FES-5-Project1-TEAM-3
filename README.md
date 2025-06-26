@@ -78,6 +78,7 @@
 ## 구조도 및 협업툴
 ![Image](https://github.com/user-attachments/assets/324699ca-28c2-4240-821e-8e4273b9d6dc)
 ## 미리보기
+#### 👇 아래 사진 클릭시 실행 영상 화면으로 이동합니다 👇
 [![Video Label](https://github.com/user-attachments/assets/03d89ed7-b957-4236-8140-fb4ec1c03c43)](https://youtu.be/3VP03anxoFA)
 ## 커밋 컨벤션
 | 타입 | 설명 |
