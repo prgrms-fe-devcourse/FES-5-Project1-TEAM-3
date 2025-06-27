@@ -35,7 +35,6 @@
 ├── /node_modules
 ├── .gitignore
 ├── .prettierrc.cjs
-├── db.json
 ├── eslint.config.mjs
 ├── package-lock.json
 ├── package.json
